@@ -16,15 +16,21 @@ class LunchesController < ApplicationController
     end
 
     def destroy
-        @lunch=Lunch.find(params[:id])
+      Lunch.find(params[:id]).destroy
+       render json: "destroyed a lunch"
+        #only need instance variables if we're going to pass them to the view???
     end
 
+    def update
+        # @lunch=Lunch.find(params[:id])
+        # @lunch=Lunch.update(params[:id], params[:name] params[:description], params[:price])
+    end
 
     private
     def listing_params
 
         # params.require(:lunch).permit(:name, :description, :price)
-        #not too sure what this does, think it's more to do with the form
+        #not too sure what this does, think it's more to do with the form???
     end
 
 end

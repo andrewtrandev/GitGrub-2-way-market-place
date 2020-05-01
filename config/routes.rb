@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   post "/lunches", to:"lunches#create"
 
-  
+  delete "/lunches", to:"lunches#destroy"
+
+  patch "/lunches/:id", to:"lunches#update"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
