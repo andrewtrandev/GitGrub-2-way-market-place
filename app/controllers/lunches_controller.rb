@@ -10,6 +10,7 @@ class LunchesController < ApplicationController
         render json: @lunch
     end
 
+    
     def create
         @lunch=Lunch.create(name: params[:name], description: params[:description], price: params[:price])
         render json: @lunch
@@ -22,8 +23,8 @@ class LunchesController < ApplicationController
     end
 
     def update
-        # @lunch=Lunch.find(params[:id])
-        # @lunch=Lunch.update(params[:id], params[:name] params[:description], params[:price])
+        @lunch=Lunch.find(params[:id])
+        @lunch.update(name: params[:name], description: params[:description], price: params[:price])
     end
 
     private
