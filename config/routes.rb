@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
+  #static routes above dynamic routes
+
   get "/lunches", to:"lunches#index" 
   #we need a get request, the path will be through root / and it'll be handled by the lunches controller by the index method
+
+ 
+
+  get "/lunches/new", to:"lunches#new"
+  #renders a new form for create method at /lunches/new
 
   get "/lunches/:id", to:"lunches#show"
 

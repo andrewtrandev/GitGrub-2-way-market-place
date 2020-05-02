@@ -10,9 +10,15 @@ class LunchesController < ApplicationController
         render json: @lunch
     end
 
-    
+    def new 
+        @lunch=Lunch.new
+        #instance var that we'll pass to view
+    end
+
     def create
-        @lunch=Lunch.create(name: params[:name], description: params[:description], price: params[:price])
+        # @lunch=Lunch.create(name: params[:name], description: params[:description], price: params[:price])
+        #above line of code doesn't work with new form - kept creating null records, but after setting listing_params and using below code it works.
+        @lunch=Lunch.create(listing_params)
         render json: @lunch
     end
 
@@ -30,8 +36,8 @@ class LunchesController < ApplicationController
     private
     def listing_params
 
-        # params.require(:lunch).permit(:name, :description, :price)
-        #not too sure what this does, think it's more to do with the form???
+        params.require(:lunch).permit(:name, :description, :price)
+        #this tell the form what parameters 
     end
 
 end
