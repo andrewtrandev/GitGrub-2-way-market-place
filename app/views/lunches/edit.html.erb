@@ -1,18 +1,11 @@
-<h1>New listing</h1>
-
-
-<% if @lunch.errors.any? %>
-<%# @lunch.errors.any? is an array%>
-    <% @lunch.errors.full_messages.each do |error|%>
-    <%# we can loop through it and print out each error %>
-        <p><%= error %></p>
-    <% end  %>
-<% end  %>
+<h1>Edit listing</h1>
 
 <%= form_with(model: @lunch, local: true) do |form| %>
 <%# putting in model so that the form posts on correct url%>
 <%# we use @lunch and assign it Lunch.new in the controller because we don't want our view to have logic in it%>
 <%# we need local: true as that helps us post our form unless we use javascript%>
+
+
     <div>
         <%= form.label :name %>
         <%# form labels are simply what the description of the box is%>
