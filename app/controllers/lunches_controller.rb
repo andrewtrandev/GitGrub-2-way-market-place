@@ -1,6 +1,6 @@
 class LunchesController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action :set_lunch, only: [:show, :destroy, :update]
+    before_action :set_lunch, only: [:show, :destroy, :update, :edit]
     #before any methods get called set @lunch=Lunch.find(params[:id])
 
 

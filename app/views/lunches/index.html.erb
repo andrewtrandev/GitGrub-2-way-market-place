@@ -1,11 +1,13 @@
 <h1>Lunch Listings</h1>
 
 <% @lunch.each do |lunch| %>
-<%# note that @lunch is actually Lunch.all%>
-<%# so for each object of lunch, print name,price,description%>
-<div class="lunchbox">
-<p><%= lunch.name %> - $<%=lunch.price %></p>
-<%= lunch.description %>
-</div>
+    <%# note that @lunch is actually Lunch.all%>
+    <%# so for each object of lunch, print name,price,description%>
+    <div class="lunchbox">
+        <p><%= lunch.name %> - $<%=lunch.price %></p>
+        <%= lunch.description %>
+    </div>
+
+
 
 <% end %>

@@ -10,9 +10,7 @@ Rails.application.routes.draw do
 
   get "/lunches/:id", to:"lunches#show"
 
-  get "/lunches/:id", to:"lunches#edit"
-
- 
+  get "/lunches/:id/edit", to:"lunches#edit"
 
   post "/lunches", to:"lunches#create"
 
