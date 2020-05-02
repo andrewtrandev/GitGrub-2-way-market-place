@@ -6,7 +6,6 @@ class LunchesController < ApplicationController
 
     def index
         @lunch=Lunch.all
-        render json: @lunch
     end
 
     def show
