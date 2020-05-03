@@ -5,7 +5,7 @@
 <%# @lunch.errors.any? is an array%>
     <% @lunch.errors.full_messages.each do |error|%>
     <%# we can loop through it and print out each error %>
-        <p><%= error %></p>
+        <p class="error"><%= error %></p>
     <% end  %>
 <% end  %>
 

@@ -10,7 +10,7 @@ class LunchesController < ApplicationController
 
     def show
         # @lunch=Lunch.find(params[:id])
-        render json: @lunch
+        
     end
 
     def new 
@@ -39,10 +39,11 @@ class LunchesController < ApplicationController
 
     def update
         @lunch=Lunch.update(params["id"], lunch_params)
+        #note the format of this is important, params["id"] is the entry we're updating, lunch params are what we're updating
         if @lunch.errors.any? #is there any errors with updating lunch?
             render "edit" #render edit view
         else 
-            redirect_to lunches_path #redirect to index if no errors with creating
+            redirect_to lunches_path #redirect to index if no errors with updating
         end
     end
 
