@@ -1,6 +1,6 @@
 class LunchesController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action :set_lunch, only: [:show, :destroy, :update, :edit]
+    before_action :set_lunch, only: [:show, :destroy, :edit]
     #before any methods get called set @lunch=Lunch.find(params[:id])
 
 
@@ -38,11 +38,16 @@ class LunchesController < ApplicationController
     end
 
     def update
-        @lunch.update(lunch_params)
+        @lunch=Lunch.update(params["id"], lunch_params)
+        if @lunch.errors.any? #is there any errors with updating lunch?
+            render "edit" #render edit view
+        else 
+            redirect_to lunches_path #redirect to index if no errors with creating
+        end
     end
 
     def edit
-
+        
     end
 
 
