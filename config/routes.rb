@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/lunches/new", to:"lunches#new"
   #renders a new form for create method at /lunches/new
 
-  get "/lunches/:id", to:"lunches#show"
+  get "/lunches/:id", to:"lunches#show", as: "lunch"
 
   get "/lunches/:id/edit", to:"lunches#edit"
 

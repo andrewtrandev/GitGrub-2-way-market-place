@@ -38,11 +38,11 @@ class LunchesController < ApplicationController
     end
 
     def update
-        @lunch.update(name: params[:name], description: params[:description], price: params[:price])
+        @lunch.update(lunch_params)
     end
 
     def edit
-    
+
     end
 
 
@@ -50,6 +50,7 @@ class LunchesController < ApplicationController
     def lunch_params
         params.require(:lunch).permit(:name, :description, :price)
         #whitelisting attributes, a list of things that are allowed
+        #which parameters are we going to permit for :lunch 
     end
 
 

@@ -3,5 +3,13 @@
     margin: 5px;
     padding: 10px;
     border-radius: 10px;
-    max-width: 400px;
+    width:40%;
+    grid-template-columns: 1fr 1fr;
+    display:inline-block;
+
+}
+
+.hero img{
+    width: 50%;
+    border-radius: 10px;
 }

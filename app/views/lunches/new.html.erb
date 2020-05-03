@@ -10,7 +10,8 @@
 <% end  %>
 
 <%= form_with(model: @lunch, local: true) do |form| %>
-<%# putting in model so that the form posts on correct url%>
+<%# form_with is a helper method that auto-generates the authenticity token and form action for us%>
+<%# putting in model: @lunch so that the form posts to the correct url%>
 <%# we use @lunch and assign it Lunch.new in the controller because we don't want our view to have logic in it%>
 <%# we need local: true as that helps us post our form unless we use javascript%>
     <div>
