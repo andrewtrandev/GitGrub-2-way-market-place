@@ -1,37 +1,4 @@
 <h1>New listing</h1>
 
 
-<% if @lunch.errors.any? %>
-<%# @lunch.errors.any? is an array%>
-    <% @lunch.errors.full_messages.each do |error|%>
-    <%# we can loop through it and print out each error %>
-        <p class="error"><%= error %></p>
-    <% end  %>
-<% end  %>
-
-<%= form_with(model: @lunch, local: true) do |form| %>
-<%# form_with is a helper method that auto-generates the authenticity token and form action for us%>
-<%# putting in model: @lunch so that the form posts to the correct url%>
-<%# we use @lunch and assign it Lunch.new in the controller because we don't want our view to have logic in it%>
-<%# we need local: true as that helps us post our form unless we use javascript%>
-    <div>
-        <%= form.label :name %>
-        <%# form labels are simply what the description of the box is%>
-        <%= form.text_field :name %>
-        <%# these are the actual forms themselves and the end argument is what the id of the value will be%>
-    </div>
-
-
-    <div>
-        <%= form.label :description %>
-        <%= form.text_area :description %>
-    </div>
-    <div>
-        <%= form.label :price %>
-        <%= form.number_field :price, min: 0 %>
-    </div>
-    <div>
-        <%= form.submit %>
-    </div>
-
-<% end %>
+<%= render "form"%>
