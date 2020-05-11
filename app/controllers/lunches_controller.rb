@@ -35,7 +35,7 @@ class LunchesController < ApplicationController
     def destroy
     #   Lunch.find(params[:id]).destroy'
         @lunch.destroy
-       render json: "destroyed a lunch"
+        redirect_to lunches_path
         #only need instance variables if we're going to pass them to the view???
     end
 
