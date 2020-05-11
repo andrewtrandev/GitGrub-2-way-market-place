@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: "lunches#index"
 
+  get "/payments/success", to:"payments#success"
+
   get "/lunches", to:"lunches#index", as:"lunches"
   #we need a get request, the path will be through root / and it'll be handled by the lunches controller by the index method
 

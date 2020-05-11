@@ -4,7 +4,7 @@
         <%= @lunch.description %>
 
         <button data-stripe="payment">
-        Pay Deposit <%= number_to_currency(@lunch.amount)%>
+        Buy Lunch <%= number_to_currency(@lunch.price)%>
         </button>
 
         <script src="https://js.stripe.com/v3/"></script>
