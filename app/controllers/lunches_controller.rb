@@ -12,7 +12,26 @@ class LunchesController < ApplicationController
 
     def show
         # @lunch=Lunch.find(params[:id])
-        
+        session = Stripe::Checkout::Session.create(
+            payment_method_types: ['card'],
+            customer_email: current_user.email,
+            line_items: [{
+                name: @lunch.name,
+                description: @lunch.description,
+                amount: @lunch.price * 100,
+                currency: 'aud',
+                quantity: 1,
+            }],
+            payment_intent_data: {
+                metadata: {
+                    user_id: current_user.id,
+                    lunch_id: @lunch.id
+                }
+            },
+            success_url: "#{root_url}payments/success?userId=#{current_user.id}&lunchId=#{@lunch.id}",
+            cancel_url: "#{root_url}lunches"
+        )
+        @session_id = session.id
     end
 
     def new 

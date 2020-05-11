@@ -2,5 +2,27 @@
         <%# make a link on lunch.name, that links to show method with specified id pulled from current object%>
         <p> <%= @lunch.name %> - $<%= @lunch.price %></p>
         <%= @lunch.description %>
+
+        <button data-stripe="payment">
+        Pay Deposit <%= number_to_currency(@lunch.amount)%>
+        </button>
+
+        <script src="https://js.stripe.com/v3/"></script>
+
+        <script>
+        document
+            .querySelector("[data-stripe='payment']")
+            .addEventListener("click", () => {
+            const stripe = Stripe(
+                "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+            );
+
+            stripe.redirectToCheckout({
+                sessionId: "<%= @session_id %>"
+            });
+            });
+        </script>
+
         <p><%= link_to "Back", lunches_path %>
+
     </div>
