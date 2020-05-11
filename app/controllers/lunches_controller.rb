@@ -1,7 +1,8 @@
 class LunchesController < ApplicationController
+    before_action :authenticate_user!  #user can't do anything unless signed in
     skip_before_action :verify_authenticity_token
     before_action :set_lunch, only: [:show, :destroy, :edit]
-    #before any methods get called set @lunch=Lunch.find(params[:id])
+    #before any methods get called set @lunch=Lunch.find(params[:id]) for the following methods
 
 
     def index
