@@ -92,10 +92,15 @@ NB leave the Titles as they are and answer the questions below.
 ![This is an image of your task planning](This is the relative path to it)
 * Shows significant planning for how tasks are planned and tracked, including a full description of the process and of the tools used
 
+Tasks will be tracked and planned through the use of Trello, Evernote and the assignment criteria. I've written up the assignment criteria and allocated checkboxes in Evernote, this will help me identify what has and has not been completed. Daily tracking of tasks can be broken down and placed in Trello.
+
 ##### 10. ERD provided represents a normalised database model.
 ![This is an image of your ERD](This is the relative path to it)
 * Meets D with no duplication and ideal definition of entities.
 
+
+
+---
 ## Section 3: Code specific assessment. 
 
 This section can be deleted from the readme. I have only included it here to draw your attention to it. 
