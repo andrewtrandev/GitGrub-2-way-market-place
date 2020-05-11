@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   #static routes above dynamic routes
+
+  root to: "lunches#index"
 
   get "/lunches", to:"lunches#index", as:"lunches"
   #we need a get request, the path will be through root / and it'll be handled by the lunches controller by the index method
