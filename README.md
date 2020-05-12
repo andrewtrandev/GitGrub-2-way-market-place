@@ -57,12 +57,24 @@ NB leave the Titles as they are and answer the questions below.
 ##### 3.1. Identify the problem you’re trying to solve by building this particular marketplace App?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
 
+For the person who can't cook or doeesn't have the time to make meals. GitGrub offers an alternative to fast food or the exorbitatnt pricing for a good meal.
+GitGrub gives you access to the home cooking of anyone willing to place their food up for sale. 
+
+These meals could be anything from breakfasts, to lunches and dinners.
 
 ##### 3.2 Why is the problem identified a problem that needs solving?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
 
+I think that individuals looking for affordable and healthy meals are starved for options. By making an app to connect cooks and users we can open the market up to families and meal preppers that may make too much food or have extra to be able to sell that food and reduce waste.
+
+
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 * Complete discussion of the project’s models with an understanding of how its active record associations function
+
+
+
+
+
 
 ##### 5. Discuss the database relations to be implemented.
 ![This is an image of your ERD](This is the relative path to it)
