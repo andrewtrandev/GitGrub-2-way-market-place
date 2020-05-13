@@ -1,6 +1,6 @@
 class LunchesController < ApplicationController
     before_action :authenticate_user!  #user can't do anything unless signed in
-    skip_before_action :verify_authenticity_token
+    # skip_before_action :verify_authenticity_token
     before_action :set_lunch, only: [:show] 
     before_action :set_user_listing, only: [:edit, :update, :destroy] #users can only edit,update,destroy their own creations
 
