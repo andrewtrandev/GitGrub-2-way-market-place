@@ -5,20 +5,32 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <%# need the above for responsiveness on phones %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%# below code to import bulma %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
   </head>
 
   <body>
-  <% if user_signed_in? %>
-    <%# if user is signed in, display a logout button %>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %>
-  <% end %>
+
+    <section class="section">
+    <%# bulma assumes everything is going to be wrapped in a section and container %>
+    <%# this adjusts margin and padding and makes it responsive by adding breakpoints %>
+      <div class="container">
+        <% if user_signed_in? %>
+          <%# if user is signed in, display a logout button %>
+            <%= link_to "logout", destroy_user_session_path, method: :delete %>
+        <% end %>
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield  %> 
-    <%# main app code gets rendered after yield %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield  %> 
+        <%# main view code gets rendered after yield %>
+      </div>
+    </section>
   </body>
 </html>
