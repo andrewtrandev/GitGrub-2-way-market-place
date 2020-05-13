@@ -11,7 +11,7 @@
 <%# putting in model: @lunch so that the form posts to the correct url%>
 <%# we use @lunch and assign it Lunch.new in the controller because we don't want our view to have logic in it%>
 <%# we need local: true as that helps us post our form unless we use javascript%>
-    <div>
+    <div class="field">
         <%= form.label :name %>
         <%# form labels are simply what the description of the box is%>
         <%= form.text_field :name %>
@@ -19,16 +19,16 @@
     </div>
 
 
-    <div>
+    <div class="field">
         <%= form.label :description %>
         <%= form.text_area :description %>
     </div>
-    <div>
+    <div class="field">
         <%= form.label :price %>
         <%= form.number_field :price, min: 0 %>
     </div>
 
-    <div>
+    <div class="field">
     <%= form.label :picture %> <%= form.file_field :picture, accept:
     'image/png,image/gif,image/jpeg,image/jpg' %>
     </div>
@@ -36,5 +36,7 @@
     <div>
         <%= form.submit %>
     </div>
+
+    <p><%= link_to "Back", lunches_path %>
 
 <% end %>

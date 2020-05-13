@@ -1,5 +1,5 @@
 class LunchesController < ApplicationController
-    before_action :authenticate_user!  #user can't do anything unless signed in
+    # before_action :authenticate_user!  #user can't do anything unless signed in
     # skip_before_action :verify_authenticity_token
     before_action :set_lunch, only: [:show] 
     before_action :set_user_listing, only: [:edit, :update, :destroy] #users can only edit,update,destroy their own creations
@@ -11,42 +11,58 @@ class LunchesController < ApplicationController
 
     def show
         # @lunch=Lunch.find(params[:id])
-        session = Stripe::Checkout::Session.create(
-            payment_method_types: ['card'],
-            customer_email: current_user.email,
-            line_items: [{
-                name: @lunch.name,
-                description: @lunch.description,
-                amount: @lunch.price * 100,
-                currency: 'aud',
-                quantity: 1,
-            }],
-            payment_intent_data: {
-                metadata: {
-                    user_id: current_user.id,
-                    lunch_id: @lunch.id
-                }
-            },
-            success_url: "#{root_url}payments/success?userId=#{current_user.id}&lunchId=#{@lunch.id}",
-            cancel_url: "#{root_url}lunches"
-        )
-        @session_id = session.id
+        #if user is signed in let him go to show/checkout
+        if user_signed_in?
+            session = Stripe::Checkout::Session.create(
+                payment_method_types: ['card'],
+                customer_email: current_user.email,
+                line_items: [{
+                    name: @lunch.name,
+                    description: @lunch.description,
+                    amount: @lunch.price * 100,
+                    currency: 'aud',
+                    quantity: 1,
+                }],
+                payment_intent_data: {
+                    metadata: {
+                        user_id: current_user.id,
+                        lunch_id: @lunch.id
+                    }
+                },
+                success_url: "#{root_url}payments/success?userId=#{current_user.id}&lunchId=#{@lunch.id}",
+                cancel_url: "#{root_url}lunches"
+            )
+            @session_id = session.id
+        else
+            #if not signed in redirect to signup page
+            redirect_to new_user_session_path
+        end
+
+        
     end
 
     def new 
-        @lunch=Lunch.new
+        if user_signed_in?
+            @lunch=Lunch.new
         #instance var that we'll pass to view
+        else
+            redirect_to new_user_session_path
+        end
     end
 
     def create
         # @lunch=Lunch.create(name: params[:name], description: params[:description], price: params[:price])
         #above line of code doesn't work with new form - kept creating null records, but after setting listing_params and using below code it works.
         
-        @lunch=current_user.lunches.create(lunch_params)
-        if @lunch.errors.any? #is there any errors with creating lunch?
-            render "new" #render new view
-        else 
-            redirect_to lunches_path #redirect to index if no errors with creating
+        if user_signed_in?
+                @lunch=current_user.lunches.create(lunch_params)
+            if @lunch.errors.any? #is there any errors with creating lunch?
+                render "new" #render new view
+            else 
+                redirect_to lunches_path #redirect to index if no errors with creating
+            end
+        else
+            redirect_to new_user_session_path
         end
     end
 
@@ -80,7 +96,13 @@ class LunchesController < ApplicationController
 
 
     def set_lunch
-        @lunch=Lunch.find(params[:id])
+        #check if this lunch exists, if it does set @lunch to the lunch found
+        if Lunch.exists?(params[:id])
+            @lunch=Lunch.find(params[:id])
+        else 
+            #if it does not exist then redirect to index
+            redirect_to lunches_path
+        end
         #using this method to dry up code as we use Lunch.find alot
         #called at the top
     end
