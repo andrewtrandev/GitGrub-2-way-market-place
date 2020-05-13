@@ -5,7 +5,6 @@ class LunchesController < ApplicationController
     before_action :set_user_listing, only: [:edit, :update, :destroy] #users can only edit,update,destroy their own creations
 
 
-
     def index
         @lunch=Lunch.all
     end
@@ -71,7 +70,6 @@ class LunchesController < ApplicationController
     def edit
         
     end
-
 
     private
     def lunch_params
