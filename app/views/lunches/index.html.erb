@@ -13,6 +13,8 @@
 <%= image_tag "hero.jpg", alt: "group toast"%>
 </div>
 
+
+<div class="columns">
 <% for lunch in @lunch %>
     <%# note that @lunch is actually Lunch.all%>
     <%# so for each object of lunch, print name,price,description%>
@@ -37,4 +39,4 @@
     <%= link_to "new lunch item", lunch_new_path %>
 </div>
 
-
+</div>

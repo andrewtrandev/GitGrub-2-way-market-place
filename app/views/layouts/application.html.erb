@@ -15,15 +15,21 @@
   </head>
 
   <body>
+    
 
     <section class="section">
+    
     <%# bulma assumes everything is going to be wrapped in a section and container %>
     <%# this adjusts margin and padding and makes it responsive by adding breakpoints %>
       <div class="container">
+           <nav class="breadcrumb" aria-label="breadcrumbs">
+        
         <% if user_signed_in? %>
           <%# if user is signed in, display a logout button %>
-            <%= link_to "logout", destroy_user_session_path, method: :delete %>
-            <%= link_to "change password", edit_user_registration_path %>
+        <ul>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Change password", edit_user_registration_path %></li>
+        </ul>
         <% end %>
 
 
