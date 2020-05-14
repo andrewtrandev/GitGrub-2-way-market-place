@@ -14,11 +14,13 @@
 </div>
 
 
-<div class="columns">
 <% for lunch in @lunch %>
     <%# note that @lunch is actually Lunch.all%>
-    <%# so for each object of lunch, print name,price,description%>
-    <div class="lunchbox">
+    <%# so for each object of lunch, print picture, name,price,description%>
+<div class="box">
+
+     <%= image_tag lunch.picture if lunch.picture.attached? %>
+    
         <% if user_signed_in?%>
             <% if current_user.id == lunch.user_id  %>
                 <%= form_with model: lunch, local: true, method: "delete" do |form| %>
@@ -27,16 +29,19 @@
                 <%end%>
             <%end%>
         <%end%>
-        <p> <%= image_tag lunch.picture if lunch.picture.attached? %> </p>
         <%# make a link on lunch.name, that links to show method with specified id pulled from current object%>
-        <p> <%= link_to lunch.name, lunch_path(lunch.id) %> - $<%=lunch.price %></p>
-        <%= lunch.description %>
-    </div>
+        <%= link_to lunch.name, lunch_path(lunch.id) %> 
+        <div class=> $<%=lunch.price%></div>
+        <div><%= lunch.description %></div>
+        <br>
+        
+</div>
 <% end %>
+
+
 
 <%# below 3 lines are to display the create button for new lunches %>
     <div class="lunchbox">
         <%= link_to "new lunch item", lunch_new_path %>
     </div>
 
-</div>
