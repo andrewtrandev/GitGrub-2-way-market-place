@@ -6,11 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 for i in 1..5
-    Lunch.create(
+    #making a variable that we can assign the User creations to
+    user=User.create(
+        email: "#{i}@test.com",
+        password: "123456"
+    )
+
+    #we can then create lunches on those users
+    user.lunches.create(
         name:Faker::Food.dish,
         description:Faker::Food.description,
         price:Faker::Number.between(from: 1, to: 10)
+    
     )
-    puts "created #{i} foods"
+    puts "created #{i} users"
 end
+
+
+# for i in 1..5
+#     Lunch.create(
+#         name:Faker::Food.dish,
+#         description:Faker::Food.description,
+#         price:Faker::Number.between(from: 1, to: 10),
+#         user_id: 1
+#     )
+#     puts "created #{i} foods"
+# end
