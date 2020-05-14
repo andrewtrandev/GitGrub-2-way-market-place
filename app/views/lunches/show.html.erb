@@ -3,9 +3,18 @@
         <p> <%= @lunch.name %> - $<%= @lunch.price %></p>
         <%= @lunch.description %>
 
-        <button data-stripe="payment">
-        Buy Lunch <%= number_to_currency(@lunch.price)%>
-        </button>
+        <% if user_signed_in? %>
+            <button data-stripe="payment">
+            Purchase Food <%= number_to_currency(@lunch.price)%>
+            </button>
+        <% else%>
+        <div class="notification is-danger">
+            <p>Please login to purchase</p>
+        </div>
+        <%end%>
+
+
+
 
         <script src="https://js.stripe.com/v3/"></script>
 
