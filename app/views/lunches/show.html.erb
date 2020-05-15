@@ -9,11 +9,9 @@
             </button>
         <% else%>
         <div class="notification is-danger">
-            <p>Please login to purchase</p>
+            <p><%=link_to "Please login to purchase", new_user_session_path%></p>
         </div>
         <%end%>
-
-
 
 
         <script src="https://js.stripe.com/v3/"></script>
@@ -33,5 +31,5 @@
         </script>
 
         <p><%= link_to "Back", lunches_path %>
-
+        
     </div>

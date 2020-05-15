@@ -7,11 +7,15 @@
   </div>
 </section>
 
-
-
 <div class="heropic">
 <%= image_tag "hero.jpg", alt: "group toast"%>
 </div>
+
+<%# below 3 lines are to display the create button for new lunches %>
+
+    <div class="box">
+        <%= link_to "+ Add meal", lunch_new_path %>
+    </div>
 
 
 <% for lunch in @lunch %>
@@ -30,18 +34,14 @@
             <%end%>
         <%end%>
         <%# make a link on lunch.name, that links to show method with specified id pulled from current object%>
-       <div> <%= link_to lunch.name, lunch_path(lunch.id) %> $<%=lunch.price%></div>
+       <div> <%= link_to lunch.name, lunch_path(lunch.id) %> </div>
       
-        <div><%= lunch.description %></div>
+        <div><%= lunch.description %> </div>
         <br>
-        
+        $<%=lunch.price%>
 </div>
 <% end %>
 
 
 
-<%# below 3 lines are to display the create button for new lunches %>
-    <div class="lunchbox">
-        <%= link_to "new lunch item", lunch_new_path %>
-    </div>
 
