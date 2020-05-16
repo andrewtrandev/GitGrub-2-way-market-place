@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   post "/addresses", to:"addresses#create"
 
+  get "/addresses/edit", to:"addresses#edit", as:"edit_address"
 
   get "/payments/success", to:"payments#success"
 

@@ -6,7 +6,7 @@
     <% end  %>
 <% end  %>
 
-<%= form_with(model: address, local: true) do |form| %>
+<%= form_with model: address, local: true do |form| %>
 <%# form_with is a helper method that auto-generates the authenticity token and form action for us%>
 <%# putting in model: address so that the form posts to the correct url%>
 <%# we use address and assign it address.new in the controller because we don't want our view to have logic in it%>
@@ -17,7 +17,6 @@
         <%= form.text_field :street %>
         <%# these are the actual forms themselves and the end argument is what the id of the value will be%>
     </div>
-
 
     <div class="field">
         <%= form.label :suburb %>

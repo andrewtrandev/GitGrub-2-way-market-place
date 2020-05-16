@@ -1,17 +1,14 @@
 class AddressesController < ApplicationController
-before_action :authenticate_user!, only:[:new, :create]
+before_action :authenticate_user!, only:[:new, :create, :edit, :update, :destroy]
+
     def show
-    
         @address=Address.find_by(user_id: current_user[:id])
-        
         if @address == nil
             redirect_to new_address_path
         end
-
     end
 
     def new 
-    
         @address=Address.new
     end
 
@@ -25,7 +22,28 @@ before_action :authenticate_user!, only:[:new, :create]
             end
     end
 
+    def edit
+        @address=Address.find_by(user_id: current_user[:id])
+        if @address == nil
+            redirect_to new_address_path
+        end
+    end
+
+    def update
+        @address=Address.update(params[:id]. address_params)
+
+        if @lunch.errors.any?
+            render "edit"
+        else
+            redirect_to view_address_path
+        end
+    end
+
+
+
+
     private
+
     def address_params
         params.require(:address).permit(:street, :suburb, :postcode, :state, :user_id)
         #whitelisting attributes, a list of things that are allowed
