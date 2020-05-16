@@ -1,9 +1,9 @@
 class AddressesController < ApplicationController
 before_action :authenticate_user!, only:[:new, :create]
     def show
-        #make address this 
-        @address=Address.find_by(params[:user_id])
-     
+    
+        @address=Address.find_by(user_id: current_user[:id])
+        
         if @address == nil
             redirect_to new_address_path
         end
