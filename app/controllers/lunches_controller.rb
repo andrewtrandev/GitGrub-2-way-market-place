@@ -7,6 +7,9 @@ class LunchesController < ApplicationController
 
     def index
         @lunch=Lunch.all
+        if Address.exists?(user_id: params[:id])
+        @address=Address.find_by(user_id: current_user[:id])
+        end
     end
 
     def show

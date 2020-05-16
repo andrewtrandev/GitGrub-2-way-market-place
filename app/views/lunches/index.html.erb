@@ -39,6 +39,11 @@
         <div><%= lunch.description %> </div>
         <br>
         $<%=lunch.price%>
+
+        <% if @address != nil %>
+        <%= @address.suburb %>
+        <%= @address.state%>
+        <%end %>
 </div>
 <% end %>
 
