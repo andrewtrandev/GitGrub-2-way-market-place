@@ -18,8 +18,11 @@ for i in 1..5
     user.lunches.create(
         name:Faker::Food.dish,
         description:Faker::Food.description,
-        price:Faker::Number.between(from: 1, to: 10)
-    
+        price:Faker::Number.between(from: 1, to: 10),
+        street:Faker::Address.street_name,
+        suburb:Faker::Address.city, 
+        state:Faker::Address.state,
+        postcode:Faker::Number.between(from:1000, to:9999)
     )
     puts "created #{i} users"
 end

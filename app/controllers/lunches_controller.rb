@@ -55,7 +55,7 @@ class LunchesController < ApplicationController
 
     private
     def lunch_params
-        params.require(:lunch).permit(:name, :description, :price, :picture)
+        params.require(:lunch).permit(:name, :description, :price, :picture, :street, :suburb, :state, :postcode)
         #whitelisting attributes, a list of things that are allowed
         #which parameters are we going to permit for :lunch 
     end
