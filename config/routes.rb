@@ -22,10 +22,9 @@ Rails.application.routes.draw do
   patch "/lunches/:id", to:"lunches#update"
 
 
+  get "/addresses", to:"addresses#show"
 
-  get "/address", to:"address"
-
-
+  
 
   get "/payments/success", to:"payments#success"
 

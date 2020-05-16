@@ -1,7 +1,8 @@
-class AddressesController < ApplicationContoller
+class AddressesController < ApplicationController
 
     def show
         # @address=current_user.addresses.find_by_id(params[:id])
+        render json: "test"
     end
 
     def new 
@@ -11,4 +12,5 @@ class AddressesController < ApplicationContoller
     def create
         @address=current_user.addresses.create(address_params)
     end
+
 end
