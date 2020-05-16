@@ -1,15 +1,15 @@
-<% if @lunch.errors.any? %>
-<%# @lunch.errors.any? is an array%>
-    <% @lunch.errors.full_messages.each do |error|%>
+<% if lunch.errors.any? %>
+<%# lunch.errors.any? is an array%>
+    <% lunch.errors.full_messages.each do |error|%>
     <%# we can loop through it and print out each error %>
         <p class="error"><%= error %></p>
     <% end  %>
 <% end  %>
 
-<%= form_with(model: @lunch, local: true) do |form| %>
+<%= form_with(model: lunch, local: true) do |form| %>
 <%# form_with is a helper method that auto-generates the authenticity token and form action for us%>
-<%# putting in model: @lunch so that the form posts to the correct url%>
-<%# we use @lunch and assign it Lunch.new in the controller because we don't want our view to have logic in it%>
+<%# putting in model: lunch so that the form posts to the correct url%>
+<%# we use lunch and assign it Lunch.new in the controller because we don't want our view to have logic in it%>
 <%# we need local: true as that helps us post our form unless we use javascript%>
     <div class="field">
         <%= form.label :name %>
