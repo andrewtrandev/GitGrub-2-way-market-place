@@ -1,0 +1,48 @@
+<% if @address.errors.any? %>
+<%# @address.errors.any? is an array%>
+    <% @address.errors.full_messages.each do |error|%>
+    <%# we can loop through it and print out each error %>
+        <p class="error"><%= error %></p>
+    <% end  %>
+<% end  %>
+
+<%= form_with(model: @address, local: true) do |form| %>
+<%# form_with is a helper method that auto-generates the authenticity token and form action for us%>
+<%# putting in model: @address so that the form posts to the correct url%>
+<%# we use @address and assign it address.new in the controller because we don't want our view to have logic in it%>
+<%# we need local: true as that helps us post our form unless we use javascript%>
+    <div class="field">
+        <%= form.label :street %>
+        <%# form labels are simply what the description of the box is%>
+        <%= form.text_field :street %>
+        <%# these are the actual forms themselves and the end argument is what the id of the value will be%>
+    </div>
+
+
+    <div class="field">
+        <%= form.label :suburb %>
+        <%= form.text_field :suburb %>
+    </div>
+    <div class="field">
+        <%= form.label :postcode %>
+        <%= form.text_field :postcode %>
+    </div>
+
+    <div class="field">
+        <%= form.label :state %>
+        <%= form.text_field :state %>
+    </div>
+
+    
+    <%form.text_field :user_id%>
+    
+    <%= form.label :lunch_id%>
+    <%= form.text_field :lunch_id%>
+
+    <div>
+        <%= form.submit %>
+    </div>
+
+    <%# <p><%= link_to "Back", address_path %> %>
+
+<% end %>

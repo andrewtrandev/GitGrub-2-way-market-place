@@ -24,7 +24,10 @@ Rails.application.routes.draw do
 
   get "/addresses", to:"addresses#show"
 
-  
+  get "/addresses/new", to:"addresses#new"
+
+  post "/addresses", to:"addresses#create"
+
 
   get "/payments/success", to:"payments#success"
 
