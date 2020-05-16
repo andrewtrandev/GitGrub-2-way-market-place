@@ -1,8 +1,12 @@
 class AddressesController < ApplicationController
 before_action :authenticate_user!, only:[:new, :create]
     def show
-        # @address=current_user.addresses.find_by_id(params[:id])
-        render json: "test"
+        #make address this 
+        @address=Address.find_by(params[:user_id])
+     
+        if @address == nil
+            redirect_to new_address_path
+        end
 
     end
 
