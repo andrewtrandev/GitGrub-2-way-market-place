@@ -1,4 +1,16 @@
-Your favorites
+</section>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+      Your favorites
+      </h1>
+    </div>
+  </div>
+</section>
+
+<div class="box">
 <% current_user.favorites.each do |favorite|%>
-<%= link_to favorite.lunch.name, favorite.lunch%>
+<%= link_to favorite.lunch.name, favorite.lunch%><br>
 <%end%>
+</div>

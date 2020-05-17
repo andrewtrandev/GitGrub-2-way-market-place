@@ -4,7 +4,6 @@ class FavoritesController < ApplicationController
 
   end
 
-
   def update
     favorite = Favorite.where(lunch: Lunch.find(params[:lunch]), user: current_user)
     #if not found it'll return an empty array
