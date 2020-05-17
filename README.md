@@ -83,7 +83,10 @@ The open market also allows for more competitive prices and higher-quality food 
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 * Complete discussion of the project’s models with an understanding of how its active record associations function
 
+Active record associations allow active record models to be associated with each other and interact with each other in an abstracted way.
 
+Dependent controls what happens to the object when the parent is destroyed. 
+Dependent Destroy causes the associated object to be destroyed. 
 
 
 
