@@ -1,0 +1,4 @@
+Your favorites
+<% current_user.favorites.each do |favorite|%>
+<%= link_to favorite.lunch.name, favorite.lunch%>
+<%end%>

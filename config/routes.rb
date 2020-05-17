@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'favorites/update'
+  get 'favorites/index', to:"favorites#index", as:"favorites"
   devise_for :users
   #static routes above dynamic routes
 
