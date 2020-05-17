@@ -1,7 +1,7 @@
 # My 2 way market place template
 
-Link to the deployed app: https://lunched.herokuapp.com/
-Link to github repo: https://github.com/andrewtrandev/lunched
+Link to the deployed app: 
+Link to github repo: 
 
 ## Section 1: Requirement checklist 
 
