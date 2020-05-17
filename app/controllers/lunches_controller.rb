@@ -10,6 +10,7 @@ class LunchesController < ApplicationController
     end
 
     def show
+        @favorite_exists = Favorite.where(lunch: @lunch, user: current_user) == [] ? false :  true
         #app would error because unlogged users had no current email
         if user_signed_in?
             stripe_checkout
