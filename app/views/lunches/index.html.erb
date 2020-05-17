@@ -1,4 +1,7 @@
+<% if !user_signed_in?%>
 <%= link_to "Login", new_user_session_path%>
+<%end%>
+<%# if user is not signed in render Login link %>
 
 <section class="hero is-dark is-bold">
   <div class="hero-body">

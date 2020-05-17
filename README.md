@@ -1,7 +1,7 @@
 # My 2 way market place template
 
-Link to the deployed app: 
-Link to github repo: 
+Link to the deployed app: https://git.heroku.com/gitgrubb.git
+Link to github repo: https://github.com/andrewtrandev/GitGrub
 
 ## Section 1: Requirement checklist 
 
@@ -14,8 +14,8 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [X] 4. My app has authorisation (i.e. users have restrictions on what they can see and edit).
 - [X] 5. My app has some type of file (eg. images) uploading capability.
 - [X] 6. My app is deployed to Heroku (recommended) or AWS.
-- [ ] 7. I have identified the problem I am trying to solve by building this particular marketplace app.
-- [ ] 8. I have explained why is it a problem that needs solving.
+- [X] 7. I have identified the problem I am trying to solve by building this particular marketplace app.
+- [X] 8. I have explained why is it a problem that needs solving.
 - [X] 9. I have provided a link (URL) to my deployed app (i.e. website)
 - [ ] 10. I have provided a link to my GitHub repository (repo). I have ensured the repo is accessible by my Educators.
 - [ ] 11. I have a complete description of my marketplace app (website), including:  
@@ -54,18 +54,30 @@ NB leave the Titles as they are and answer the questions below.
 ##### 2. List and describe any 3rd party services.
 * Precisely explains and shows understanding of the different high-level components of the app
 
+Use of Devise for user authentication and authorisation. 
+
+Stripe used for payments
+
+Amazon S3 for image uploading and cloud storage of images.
+
+Bulma was used as a css framework for quickly applying styling to various components. 
+
+Faker gem was used to generate fake seed data. This was used to test functionality of the models and provide visual feedback of how views would render.
+
 ##### 3.1. Identify the problem you’re trying to solve by building this particular marketplace App?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
 
-For the person who can't cook or doeesn't have the time to make meals. GitGrub offers an alternative to fast food or the exorbitatnt pricing for a good meal.
+For the person who can't cook or doesn't have the time to make meals. GitGrub offers an alternative to fast food and the exorbitant pricing for a good meal.
 GitGrub gives you access to the home cooking of anyone willing to place their food up for sale. 
 
-These meals could be anything from breakfasts, to lunches and dinners.
+These meals could be anything from breakfasts, to lunches and dinners. By opening the market up to anyone who can cook we can allow for a more competitive food market where prices are appropriate and food is of high-quality.
 
 ##### 3.2 Why is the problem identified a problem that needs solving?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
 
-I think that individuals looking for affordable and healthy meals are starved for options. By making an app to connect cooks and users we can open the market up to families and meal preppers that may make too much food or have extra to be able to sell that food and reduce waste.
+I think that individuals looking for affordable and healthy meals are starved for options. By making an app to connect cooks and users we can open the market up to families and meal preppers that may make too much food or have extra, to be able to sell that food and reduce waste. 
+
+The open market also allows for more competitive prices and higher-quality food will naturally sell more than lesser-quality food, this creates an incentive to maintain and innovate on better dishes.
 
 
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
@@ -89,12 +101,24 @@ I think that individuals looking for affordable and healthy meals are starved fo
 * You also just use normal markdown to describe them
 * User stories are well thought out, relevant, and comprehensively cover the needs of the app
 
+A user=buyer/seller
+A user can buy meals and also list meals for sale
+
+A user should be able to view meals without logging in
+A user can place meals up so that other users may purchase them
+A user can logout at any screen
+A user can only edit and delete their own listings
+A user can list a description, price, address and attach a picture for their listing
+A user can purchase meals by paying through stripe
+
+
 ##### 8. Provide Wireframes for your App.
 ![This is an image of your wire frames](This is the relative path to it)  
 ![This is an image of your wire frames](This is the relative path to it)  
 ![This is an image of your wire frames](This is the relative path to it)  
 ![This is an image of your wire frames](This is the relative path to it)  
 ![This is an image of your wire frames](This is the relative path to it)  
+
 * More than five detailed and well designed wireframes provided, for several different screen sizes (as required for the app)
 
 ##### 9. Describe the way tasks are planned and tracked in your project.
@@ -102,6 +126,7 @@ I think that individuals looking for affordable and healthy meals are starved fo
 ![This is an image of your task planning](This is the relative path to it)
 ![This is an image of your task planning](This is the relative path to it)
 ![This is an image of your task planning](This is the relative path to it)
+
 * Shows significant planning for how tasks are planned and tracked, including a full description of the process and of the tools used
 
 Tasks will be tracked and planned through the use of Trello, Evernote and the assignment criteria. I've written up the assignment criteria and allocated checkboxes in Evernote, this will help me identify what has and has not been completed. Daily tracking of tasks can be broken down and placed in Trello.

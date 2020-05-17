@@ -8,7 +8,8 @@
 
 
 for i in 1..5
-    #making a variable that we can assign the User creations to
+    #making a variable that we can assign the User creations to, 
+    #on the first loop a user with email 1@test.com will be created and a random lunch will be created and associated to them.
     user=User.create(
         email: "#{i}@test.com",
         password: "123456"
