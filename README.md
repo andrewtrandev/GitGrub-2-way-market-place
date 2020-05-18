@@ -1,6 +1,6 @@
 # My 2 way market place template
 
-Link to the deployed app: https://git.heroku.com/gitgrubb.git
+Link to the deployed app: https://git.heroku.com/gitgrubb.git  <br>
 Link to github repo: https://github.com/andrewtrandev/GitGrub
 
 ## Section 1: Requirement checklist 
@@ -26,7 +26,7 @@ Each time you have completed a requirement check it off the list. This way it wi
         - 11.5 Target audience  
         - 11.6 Tech stack (e.g. html, css, deployment platform, etc)  
 
-- [ ] 12. I have provided user stories for my app
+- [X] 12. I have provided user stories for my app
 - [ ] 13. I have provided Wire-Frames for my app 
 - [ ] 14. I have provided an ERD for my app
 - [ ] 15. I have explained the different high-level components (abstractions) in my app
@@ -34,7 +34,7 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [ ] 17. I have described my projects models in terms of the relationships (active record associations) they have with each other.
 - [ ] 18. I have discussed the database relations to be implemented in my application
 - [ ] 19. I have provided my database schema design
-- [ ] 20. I have described the way tasks are allocated and tracked in my project
+- [X] 20. I have described the way tasks are allocated and tracked in my project
 
 NB Slide/Presentation specific requirements
 
@@ -43,18 +43,38 @@ NB Slide/Presentation specific requirements
 - [ ] 23. I have practived my presentation at least once and it is 5-6 minutes long. 
 
 
-### Rubric Criteria
+---
 
-## Section 2: Documentation 
+Purpose  
+Functionality / features  
+Sitemap  
+Screenshots  
+Target audience  
+Tech stack (e.g. html, css, deployment platform, etc)  
+
+
+
+### Rubric Criteria
+---
+## Section 2: Documentation
+---
 NB leave the Titles as they are and answer the questions below.
 
 ##### 1. Explain the different high-level components (abstractions) in your App.
 * Includes a complete and detailed description of third party services used in the app
 
+
+
+<!-- Is this like the MVC ? 
+not sure what it means by high-level components (abstractions) -->
+talk about how high-level components work 
+
+database/MVC
+
 ##### 2. List and describe any 3rd party services.
 * Precisely explains and shows understanding of the different high-level components of the app
 
-Use of Devise for user authentication and authorisation. 
+Use of Devise gem for user authentication and authorisation. The devise gem automatically generates a User model for us that we can use to assign unique accounts to. It allows us to assign emails and passwords to a user and can generate the views necessary to display login pages and 
 
 Stripe used for payments
 
@@ -83,15 +103,13 @@ The open market also allows for more competitive prices and higher-quality food 
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 * Complete discussion of the project’s models with an understanding of how its active record associations function
 
-
-
-
-
+dependent destory
 
 ##### 5. Discuss the database relations to be implemented.
 ![This is an image of your ERD](This is the relative path to it)
 * Provides coherent discussion of the database relations, with reference to the ERD
 
+numbers and screenshots
 
 ##### 6. Provide your database schema design.
 * Flawless, complex, complete, and well thought through ERDs provided
@@ -101,15 +119,19 @@ The open market also allows for more competitive prices and higher-quality food 
 * You also just use normal markdown to describe them
 * User stories are well thought out, relevant, and comprehensively cover the needs of the app
 
-A user=buyer/seller
+A user = buyer/seller
 A user can buy meals and also list meals for sale
 
 A user should be able to view meals without logging in
-A user can place meals up so that other users may purchase them
 A user can logout at any screen
 A user can only edit and delete their own listings
-A user can list a description, price, address and attach a picture for their listing
+A user can place a description, price, address for their listing
+A user can attach an image for their listing
 A user can purchase meals by paying through stripe
+A user can favorite a meal that they like
+A user can view all their favorites
+A user can navigate to parts of the website through the navigation bar
+
 
 
 ##### 8. Provide Wireframes for your App.
@@ -122,14 +144,37 @@ A user can purchase meals by paying through stripe
 * More than five detailed and well designed wireframes provided, for several different screen sizes (as required for the app)
 
 ##### 9. Describe the way tasks are planned and tracked in your project.
-![This is an image of your task planning](This is the relative path to it)
-![This is an image of your task planning](This is the relative path to it)
-![This is an image of your task planning](This is the relative path to it)
+
+
+Tasks will be tracked and planned through the use of Trello, Evernote and the assignment criteria. I've written up the assignment criteria and allocated checkboxes in Evernote, this will help me identify what has and has not been completed. Daily tracking of tasks can be broken down and placed in Trello.
+
+I've broken my two weeks down to roughly 4 stages.
+
+The aim of the first stage was to get a minimum viable product(mvp) up and running. It involved generating wireframes and the mvp consisted of getting the CRUD functionality working and systematically completing the code requirements.
+
+The aim of the second stage to get be deploy ready. This involved having completely finished the code requirements and adding in optional features such as stripe. 
+The second stage involved getting the app deploy ready and adding in styling and optional features such as stripe payments. 
+
+At the third stage I wanted to get most of the app done and start working on documentation. This stage included more styling and modifying of one of the models.  
+
+
+<br>
+
+11.5.20 / Day 4 - Below image is the state of my trello board
+![trello board 11th](docs/11th.PNG)
+
+14.5.20 / Day 7
+![trello board 14th](docs/14th.PNG)\
+
+17.5.20 / Day 10
+![trello board 17th](docs/17th.PNG)
+
+
 ![This is an image of your task planning](This is the relative path to it)
 
 * Shows significant planning for how tasks are planned and tracked, including a full description of the process and of the tools used
 
-Tasks will be tracked and planned through the use of Trello, Evernote and the assignment criteria. I've written up the assignment criteria and allocated checkboxes in Evernote, this will help me identify what has and has not been completed. Daily tracking of tasks can be broken down and placed in Trello.
+
 
 ##### 10. ERD provided represents a normalised database model.
 ![This is an image of your ERD](This is the relative path to it)
