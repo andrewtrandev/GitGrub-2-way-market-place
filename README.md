@@ -26,7 +26,7 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [ ] 11.3 Sitemap  
 - [ ] 11.4 Screenshots  
 - [X] 11.5 Target audience  
-- [ ] 11.6 Tech stack (e.g. html, css, deployment platform, etc)  
+- [X] 11.6 Tech stack (e.g. html, css, deployment platform, etc)  
 
 - [X] 12. I have provided user stories for my app
 - [ ] 13. I have provided Wire-Frames for my app 
