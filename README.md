@@ -23,7 +23,7 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [ ] 11. I have a complete description of my marketplace app (website), including:  
 - [X] 11.1 Purpose  
 - [X] 11.2 Functionality / features  
-- [ ] 11.3 Sitemap  
+- [X] 11.3 Sitemap  
 - [ ] 11.4 Screenshots  
 - [X] 11.5 Target audience  
 - [X] 11.6 Tech stack (e.g. html, css, deployment platform, etc)  
@@ -50,6 +50,8 @@ NB Slide/Presentation specific requirements
 #### Purpose
 The purpose of my marketplace is to connect cooks and users together and facilitate the exchange of food and currency between them.
 
+<br>
+
 #### Functionality / features  
 
 **User accounts** - 
@@ -65,34 +67,52 @@ Logged in users can favorite meals by clicking the favorite link displayed when 
 **Secure Payment** -
 Payments are handled by stripe, a well-known payment platform that accepts credit cards and google pay. 
 
+<br>
+
 #### Sitemap  
+Note the blue boxes/site pages can be accessed by anyone while yellow boxes can only be accessed by signed in users.
+![sitemap](docs/sitemap.PNG)
+
 
 #### Screenshots  
+
+
+
+
+
+
+
 
 #### Target audience  
 The main audience are busy individuals and individuals seeking food that offers competitive pricing and healthier alternatives than traditional options.
 
 #### Tech stack (e.g. html, css, deployment platform, etc)  
 Application and Data
-- Html
+- Amazon S3
+- Bulma
 - CSS
+- Heroku
+- Html
+- Javascript
+- jQuery
+- Postgresql
 - Ruby
 - Ruby on Rails
-- Heroku 
-- Bulma
-- Postgresql
-- Amazon S3
-- jQuery
-- Javascript
 
+  
 DevOps
-- Github
 - Git
+- Github
+- Visual Studio Code
 
 Utilities
+- Balsamiq Wireframes
+- Devise
+- Evernote
 - Stripe
 - Trello
-- Evernote
+- Ultrahook
+
 
 ---
 ### Rubric Criteria
@@ -102,22 +122,26 @@ Utilities
 NB leave the Titles as they are and answer the questions below.
 
 ##### 1. Explain the different high-level components (abstractions) in your App.
-* Includes a complete and detailed description of third party services used in the app
+* Precisely explains and shows understanding of the different high-level components of the app
+
+The model, view, controller and database are high-level components of the app.
 
 
 
-<!-- Is this like the MVC ? 
-not sure what it means by high-level components (abstractions) -->
+
+
+
 talk about how high-level components work 
 
 database/MVC
 
 ##### 2. List and describe any 3rd party services.
-* Precisely explains and shows understanding of the different high-level components of the app
+* Includes a complete and detailed description of third party services used in the app
 
-Use of Devise gem for user authentication and authorisation. The devise gem automatically generates a User model for us that we can use to assign unique accounts to. It allows us to assign emails and passwords to a user and can generate the views necessary to display login pages and 
 
-Stripe used for payments
+Use of Devise gem for user authentication and authorisation. The devise gem automatically generates a User model for us that we can use to assign unique accounts to. It allows us to generate a user and assign an email and password to. It can also generate the necessary views and routes for us to display login, sign up, edit password and forgot password pages.
+
+The Stripe gem was used to facilitate payments in GitGrub, it allows individuals and businesses to make payments online securely and quickly. 
 
 Amazon S3 for image uploading and cloud storage of images.
 
