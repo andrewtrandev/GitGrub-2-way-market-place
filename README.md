@@ -207,12 +207,12 @@ Tasks will be tracked and planned through the use of Trello, Evernote and the as
 
 I've broken my two weeks down to roughly 4 stages.
 
-The aim of the first stage was to get a minimum viable product(mvp) up and running. It involved generating wireframes and the mvp consisted of getting the CRUD functionality working and systematically completing the code requirements.
+The aim of the first stage was to get a minimum viable product(mvp) up and running. It involved generating wireframes and the mvp, consisting of getting the CRUD functionality working and systematically completing the code requirements.
 
-The aim of the second stage to get be deploy ready. This involved having completely finished the code requirements and adding in optional features such as stripe. 
-The second stage involved getting the app deploy ready and adding in styling and optional features such as stripe payments. 
+The aim of the second stage was get the app deploy ready. This involved having completely finished the code requirements and testing if the app would deploy. 
+Optional features such as stripe and styling were added in after deployment was successful.
 
-At the third stage I wanted to get most of the app done and start working on documentation. This stage included more styling and modifying of one of the models.  
+At the third stage I wanted to get most of the app done and start working on documentation. This stage included more styling and modifying of one of the models.   
 
 
 <br>
