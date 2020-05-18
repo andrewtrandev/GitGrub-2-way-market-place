@@ -3,6 +3,8 @@
 Link to the deployed app: https://git.heroku.com/gitgrubb.git  <br>
 Link to github repo: https://github.com/andrewtrandev/GitGrub
 
+
+---
 ## Section 1: Requirement checklist 
 
 Each time you have completed a requirement check it off the list. This way it will be easy for the educators as well as yourselves to track your progress.
@@ -19,12 +21,12 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [X] 9. I have provided a link (URL) to my deployed app (i.e. website)
 - [ ] 10. I have provided a link to my GitHub repository (repo). I have ensured the repo is accessible by my Educators.
 - [ ] 11. I have a complete description of my marketplace app (website), including:  
-        - 11.1 Purpose  
-        - 11.2 Functionality / features  
-        - 11.3 Sitemap  
-        - 11.4 Screenshots  
-        - 11.5 Target audience  
-        - 11.6 Tech stack (e.g. html, css, deployment platform, etc)  
+- [X] 11.1 Purpose  
+- [X] 11.2 Functionality / features  
+- [ ] 11.3 Sitemap  
+- [ ] 11.4 Screenshots  
+- [X] 11.5 Target audience  
+- [ ] 11.6 Tech stack (e.g. html, css, deployment platform, etc)  
 
 - [X] 12. I have provided user stories for my app
 - [ ] 13. I have provided Wire-Frames for my app 
@@ -40,22 +42,61 @@ NB Slide/Presentation specific requirements
 
 - [ ] 21. An outline of the problem I solved by building this particular marketplace app, and why it’s a problem that needs solving.
 - [ ] 22. A well planned walkthrough of my app
-- [ ] 23. I have practived my presentation at least once and it is 5-6 minutes long. 
+- [ ] 23. I have practiced my presentation at least once and it is 5-6 minutes long. 
 
 
 ---
 
-Purpose  
-Functionality / features  
-Sitemap  
-Screenshots  
-Target audience  
-Tech stack (e.g. html, css, deployment platform, etc)  
+#### Purpose
+The purpose of my marketplace is to connect cooks and users together and facilitate the exchange of food and currency between them.
 
+#### Functionality / features  
 
+**User accounts** - 
+Users can make accounts to access all the features of the website. Users can also edit their password or delete their account.
 
+**Listings** - 
+Users that are not signed in can view the index and click to view listings but are restricted from purchasing meals.
+Logged in users can create meal listings and edit them as needed. They can also attach pictures and an address for the listing.
+
+**Favorites** -
+Logged in users can favorite meals by clicking the favorite link displayed when viewing a single meal. All favorites can be viewed from the navigation bar.
+
+**Secure Payment** -
+Payments are handled by stripe, a well-known payment platform that accepts credit cards and google pay. 
+
+#### Sitemap  
+
+#### Screenshots  
+
+#### Target audience  
+The main audience are busy individuals and individuals seeking food that offers competitive pricing and healthier alternatives than traditional options.
+
+#### Tech stack (e.g. html, css, deployment platform, etc)  
+Application and Data
+- Html
+- CSS
+- Ruby
+- Ruby on Rails
+- Heroku 
+- Bulma
+- Postgresql
+- Amazon S3
+- jQuery
+- Javascript
+
+DevOps
+- Github
+- Git
+
+Utilities
+- Stripe
+- Trello
+- Evernote
+
+---
 ### Rubric Criteria
----
+
 ## Section 2: Documentation
 ---
 NB leave the Titles as they are and answer the questions below.
@@ -109,12 +150,10 @@ The open market also allows for more competitive prices and higher-quality food 
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 * Complete discussion of the project’s models with an understanding of how its active record associations function
 
-dependent destory
-Active record associations allow active record models to be associated with each other and interact with each other in an abstracted way.
+<!-- Active record associations allow active record models to be associated with each other and interact with each other in an abstracted way.
 
 Dependent controls what happens to the object when the parent is destroyed. 
-Dependent Destroy causes the associated object to be destroyed. 
-
+Dependent Destroy causes the associated object to be destroyed.  -->
 
 The Favorites model is used to attach a favorite to a specific lunch and associate that to a user. A Favorite belongs to User and Lunch. The combination of both of these act as a join table to define Favorites.
 If a favorite only belonged to a user then there would be no reference to a lunch and vice-versa.
@@ -191,7 +230,6 @@ At the third stage I wanted to get most of the app done and start working on doc
 ![This is an image of your task planning](This is the relative path to it)
 
 * Shows significant planning for how tasks are planned and tracked, including a full description of the process and of the tools used
-
 
 
 ##### 10. ERD provided represents a normalised database model.
