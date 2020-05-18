@@ -84,26 +84,44 @@ Bulma was used as a css framework for quickly applying styling to various compon
 
 Faker gem was used to generate fake seed data. This was used to test functionality of the models and provide visual feedback of how views would render.
 
+Jquery-rails was added so that I could have the favorites button work dynamically without re-rendering the whole webpage.
+
 ##### 3.1. Identify the problem you’re trying to solve by building this particular marketplace App?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
 
+The problem I'm trying to solve is the lack of options when it comes to meals. Options such as going out to eat at a restaurant during the coronavirus pandemic are not possible, considering most restaurants have shut or drastically reduced their open times and/or seating capacity. 
+This leaves the options of cooking your own food or getting food delivered. Delivery options are expensive-for what you get and if it's not expensive than it's usually fast food which isn't particularly healthy.
 For the person who can't cook or doesn't have the time to make meals. GitGrub offers an alternative to fast food and the exorbitant pricing for a good meal.
 GitGrub gives you access to the home cooking of anyone willing to place their food up for sale. 
 
-These meals could be anything from breakfasts, to lunches and dinners. By opening the market up to anyone who can cook we can allow for a more competitive food market where prices are appropriate and food is of high-quality.
+These meals could be anything from breakfasts, to lunches and dinners. By opening the market up to anyone who can cook we can allow for a more dynamic food market where naturally food options are diversified, prices are competitive and food of high-quality is popular.
 
 ##### 3.2 Why is the problem identified a problem that needs solving?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
 
-I think that individuals looking for affordable and healthy meals are starved for options. By making an app to connect cooks and users we can open the market up to families and meal preppers that may make too much food or have extra, to be able to sell that food and reduce waste. 
+This problem needs solving as busy individuals and individuals looking for affordable and healthy meals are starved for options. 
+Especially during the coronavirus pandemic, options are limited and now that more people are forced to stay at home, it may be comforting to have alternatives.
+By making an app to connect cooks and users we can open the market up to cooks,families and meal preppers that can take advantage of a unique time where most people are eating at home.
 
-The open market also allows for more competitive prices and higher-quality food will naturally sell more than lesser-quality food, this creates an incentive to maintain and innovate on better dishes.
+The open market also allows for more competitive prices and higher-quality food which will naturally sell more than lesser-quality food, this creates an incentive to maintain quality and innovate on better dishes.
 
 
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 * Complete discussion of the project’s models with an understanding of how its active record associations function
 
 dependent destory
+Active record associations allow active record models to be associated with each other and interact with each other in an abstracted way.
+
+Dependent controls what happens to the object when the parent is destroyed. 
+Dependent Destroy causes the associated object to be destroyed. 
+
+
+The Favorites model is used to attach a favorite to a specific lunch and associate that to a user. A Favorite belongs to User and Lunch. The combination of both of these act as a join table to define Favorites.
+If a favorite only belonged to a user then there would be no reference to a lunch and vice-versa.
+
+The Lunch model is used to store the associated data for a meal. It belongs to a User which means each Lunch item can only be associated and created by a single user, i.e A lunch item can not have many users associated with it.
+
+A User has many Lunches and many Favorites. 
 
 ##### 5. Discuss the database relations to be implemented.
 ![This is an image of your ERD](This is the relative path to it)
