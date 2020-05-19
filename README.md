@@ -189,12 +189,34 @@ The open market also allows for more competitive prices and higher-quality food 
 Dependent controls what happens to the object when the parent is destroyed. 
 Dependent Destroy causes the associated object to be destroyed.  -->
 
-The Favorites model is used to attach a favorite to a specific lunch and associate that to a user. A Favorite belongs to User and Lunch. The combination of both of these act as a join table to define Favorites.
-If a favorite only belonged to a user then there would be no reference to a lunch and vice-versa.
+```ruby
+class Favorite < ApplicationRecord
+  belongs_to :user
+  belongs_to :lunch
+end
+```
+
+The Favorites model is used to attach a favorite to a specific lunch and  user. A Favorite belongs to a User and Lunch. The combination of both of these act as a join table to define Favorites.
+If a favorite only belonged to a user then there would be no reference to what lunch it would refer to and if a favorite only belonged to a lunch then it wouldn't be belong to any user. Hence why we need both values.
+
+
+```ruby
+class Lunch < ApplicationRecord
+    belongs_to :user
+end
+```
 
 The Lunch model is used to store the associated data for a meal. It belongs to a User which means each Lunch item can only be associated and created by a single user, i.e A lunch item can not have many users associated with it.
 
-A User has many Lunches and many Favorites. 
+```ruby
+class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  has_many :favorites, dependent: :destroy
+  has_many :lunches, dependent: :destroy
+end
+```
+A User can have many lunches and many favorites. When a user is destroyed it will also consequently delete the favorites and lunches that reference the user as a foreign key.
 
 ##### 5. Discuss the database relations to be implemented.
 ![This is an image of your ERD](This is the relative path to it)
