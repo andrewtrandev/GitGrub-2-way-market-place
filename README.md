@@ -3,7 +3,6 @@
 Link to the deployed app: https://git.heroku.com/gitgrubb.git  <br>
 Link to github repo: https://github.com/andrewtrandev/GitGrub
 
-
 ---
 ## Section 1: Requirement checklist 
 
@@ -50,21 +49,20 @@ NB Slide/Presentation specific requirements
 #### Purpose
 The purpose of my marketplace is to connect cooks and users together and facilitate the exchange of food and currency between them.
 
-<br>
 
 #### Functionality / features  
 
-**User accounts** - 
+- **User accounts** - 
 Users can make accounts to access all the features of the website. Users can also edit their password or delete their account.
 
-**Listings** - 
+- **Listings** - 
 Users that are not signed in can view the index and click to view listings but are restricted from purchasing meals.
 Logged in users can create meal listings and edit them as needed. They can also attach pictures and an address for the listing.
 
-**Favorites** -
+- **Favorites** -
 Logged in users can favorite meals by clicking the favorite link displayed when viewing a single meal. All favorites can be viewed from the navigation bar.
 
-**Secure Payment** -
+- **Secure Payment** -
 Payments are handled by stripe, a well-known payment platform that accepts credit cards and google pay. 
 
 <br>
@@ -124,6 +122,8 @@ NB leave the Titles as they are and answer the questions below.
 ##### 1. Explain the different high-level components (abstractions) in your App.
 * Precisely explains and shows understanding of the different high-level components of the app
 
+---
+
 GitGrub was built using Ruby on Rails and utilises the Postgresql database. Ruby on Rails relies on the MVC (Model, View, Controller) framework which divides the app into 3 distinct but connected parts. Rails has very specific naming conventions that it requires so that it can recognise and create links between the MVC framework.
 
 The model, view, controller and database are high-level components of the app that interact to generate the various user interfaces for the client, handle and store data and deal with user requests. Explained below are the different high-level components:
@@ -137,23 +137,25 @@ The Controller, also known as ActionController, handles requests from users and 
 
 Routes are also another important part of the application that help direct incoming http requests to the appropriate controllers and actions.
 
+
+---
 ##### 2. List and describe any 3rd party services.
 * Includes a complete and detailed description of third party services used in the app
+---
 
 #### Devise
 Use of Devise gem for user authentication and authorisation. The devise gem automatically generates a User model for us that we can use to assign unique accounts to. It allows us to generate a user and assign an email and password to. It can also generate the necessary views and routes for us to display login, sign up, edit password and forgot password pages.
 
 #### Stripe
 The Stripe gem was used to facilitate payments in GitGrub, it allows individuals and businesses to make payments online securely and quickly. 
-Stripe has streamlined the process to add payment options to an app and also have added security features such an enforced encryption, fraud detection and is Payment Card Industry Data Security Standards compliant (PCI DSS)- a security standard to reduce fraud and data breaches for customers.
+Stripe has streamlined the process to add payment options to an app and also have security features such an enforced encryption, fraud detection and is Payment Card Industry Data Security Standards compliant (PCI DSS)- a security standard to reduce fraud and data breaches for customers.
 
 #### Amazon S3
-Amazon Simple Storage Service or Amazon S3 provides storage for objects and is mainly used in my application for image uploading and cloud storage of images.
+Amazon Simple Storage Service, or Amazon S3, provides storage for objects and is mainly used in my application for image uploading and cloud storage of images.
 
 
 #### Bulma
-Bulma was used as a css framework for quickly applying styling to various components. 
-
+Bulma is a css framework based on flexbox that I used for quickly applying styling to various components. 
 
 #### Faker
 Faker gem was used to generate fake seed data. This was used to test functionality of the models and provide visual feedback of how views would render.
@@ -161,9 +163,10 @@ Faker gem was used to generate fake seed data. This was used to test functionali
 #### Jquery-rails
 Jquery-rails was added so that I could have the favorites button work dynamically without re-rendering the whole webpage.
 
+---
 ##### 3.1. Identify the problem you’re trying to solve by building this particular marketplace App?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
-
+---
 The problem I'm trying to solve is the lack of options when it comes to meals. Options such as going out to eat at a restaurant during the coronavirus pandemic are not possible, considering most restaurants have shut or drastically reduced their open times and/or seating capacity. 
 This leaves the options of cooking your own food or getting food delivered. Delivery options are expensive-for what you get and if it's not expensive than it's usually fast food which isn't particularly healthy.
 For the person who can't cook or doesn't have the time to make meals. GitGrub offers an alternative to fast food and the exorbitant pricing for a good meal.
@@ -171,8 +174,10 @@ GitGrub gives you access to the home cooking of anyone willing to place their fo
 
 These meals could be anything from breakfasts, to lunches and dinners. By opening the market up to anyone who can cook we can allow for a more dynamic food market where naturally food options are diversified, prices are competitive and food of high-quality is popular.
 
+---
 ##### 3.2 Why is the problem identified a problem that needs solving?
 * Demonstrates a full understanding of the problems that exist in a relevant marketplace that needs disrupting
+---
 
 This problem needs solving as busy individuals and individuals looking for affordable and healthy meals are starved for options. 
 Especially during the coronavirus pandemic, options are limited and now that more people are forced to stay at home, it may be comforting to have alternatives.
@@ -180,14 +185,31 @@ By making an app to connect cooks and users we can open the market up to cooks,f
 
 The open market also allows for more competitive prices and higher-quality food which will naturally sell more than lesser-quality food, this creates an incentive to maintain quality and innovate on better dishes.
 
-
+---
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 * Complete discussion of the project’s models with an understanding of how its active record associations function
-
+---
 <!-- Active record associations allow active record models to be associated with each other and interact with each other in an abstracted way.
 
 Dependent controls what happens to the object when the parent is destroyed. 
 Dependent Destroy causes the associated object to be destroyed.  -->
+
+```ruby
+class User < ApplicationRecord
+  has_many :favorites, dependent: :destroy
+  has_many :lunches, dependent: :destroy
+end
+```
+A User can have many lunches and many favorites. When a user is destroyed it will also consequently delete the favorites and lunches that reference the user as a foreign key.
+
+```ruby
+class Lunch < ApplicationRecord
+    belongs_to :user
+end
+```
+
+The Lunch model is used to store the associated data for a meal. It belongs to a User which means each Lunch item can only be associated and created by a single user, i.e A lunch item can not have many users associated with it.
+
 
 ```ruby
 class Favorite < ApplicationRecord
@@ -199,51 +221,38 @@ end
 The Favorites model is used to attach a favorite to a specific lunch and  user. A Favorite belongs to a User and Lunch. The combination of both of these act as a join table to define Favorites.
 If a favorite only belonged to a user then there would be no reference to what lunch it would refer to and if a favorite only belonged to a lunch then it wouldn't be belong to any user. Hence why we need both values.
 
-
-```ruby
-class Lunch < ApplicationRecord
-    belongs_to :user
-end
-```
-
-The Lunch model is used to store the associated data for a meal. It belongs to a User which means each Lunch item can only be associated and created by a single user, i.e A lunch item can not have many users associated with it.
-
-```ruby
-class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  has_many :favorites, dependent: :destroy
-  has_many :lunches, dependent: :destroy
-end
-```
-A User can have many lunches and many favorites. When a user is destroyed it will also consequently delete the favorites and lunches that reference the user as a foreign key.
-
+---
 ##### 5. Discuss the database relations to be implemented.
+---
 ![This is an image of your ERD](This is the relative path to it)
 * Provides coherent discussion of the database relations, with reference to the ERD
 
 numbers and screenshots
 
+
+---
 ##### 6. Provide your database schema design.
 * Flawless, complex, complete, and well thought through ERDs provided
+---
 
+
+---
 ##### 7. Provide User stories for your App.
 ![This is an image of your user stories](This is the relative path to it)
 * You also just use normal markdown to describe them
 * User stories are well thought out, relevant, and comprehensively cover the needs of the app
+---
 
-A user = buyer/seller
-A user can buy meals and also list meals for sale
+A user can be either a buyer or seller.
 
-A user should be able to view meals without logging in
-A user can logout at any screen
-A user can only edit and delete their own listings
-A user can place a description, price, address for their listing
-A user can attach an image for their listing
-A user can purchase meals by paying through stripe
-A user can favorite a meal that they like
-A user can view all their favorites
-A user can navigate to parts of the website through the navigation bar
+- As a user, I want to view meals without logging in.
+- As a user, I want to be able to logout at any screen.
+- As a user, I want to be able to buy meals.
+- As a user, I want to be able to favorite meals that I like and view them later.
+- As a seller, I can create listings and attach details to my listings including images.
+- As a user, I want payment to be handled quickly and securely.
+- As a seller, only I should be able to edit and delete my own listings.
+- As a user, I want to be able to navigate the various sections of the website quickly.
 
 
 
