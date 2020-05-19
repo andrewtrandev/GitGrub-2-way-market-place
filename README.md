@@ -124,36 +124,41 @@ NB leave the Titles as they are and answer the questions below.
 ##### 1. Explain the different high-level components (abstractions) in your App.
 * Precisely explains and shows understanding of the different high-level components of the app
 
-GitGrub was built using Ruby on Rails and utilises the Postgresql database. Ruby on Rails relies on the MVC- Model, View, Controller framework which divides the app into 3 distinct but connected parts. 
-The model, view, controller and database are high-level components of the app that interact to generate the various user interfaces for the client, handle and store data and deal with user requests.
+GitGrub was built using Ruby on Rails and utilises the Postgresql database. Ruby on Rails relies on the MVC (Model, View, Controller) framework which divides the app into 3 distinct but connected parts. Rails has very specific naming conventions that it requires so that it can recognise and create links between the MVC framework.
 
+The model, view, controller and database are high-level components of the app that interact to generate the various user interfaces for the client, handle and store data and deal with user requests. Explained below are the different high-level components:
 
-Model - abstracted ORM?
+The model, also known as ActiveRecord, primarily deals with persistent data and the manipulation of the database. The model makes use of associations and Object Relational Mapping to manipulate data as objects which allows us to interact with the database without having to write SQL. 
+ActiveRecord also automatically generates Create, Read, Update, Delete (CRUD) methods for us to use on our models.
 
-View - 
+The view, also known as ActionView, is concerned with presentation of data to the user. It mainly uses Embedded Ruby (erb) files to display data. Views can access the instance variables of methods that are appropriately named, this allows Controllers to pass information to views so that they can displayed to end users. Views should have very little logic and mainly have logic to render displays.
 
-Controller - 
+The Controller, also known as ActionController, handles requests from users and acts as a middle-man between the view and model by analysing requests and forwarding them to the model to fetch, update or save data and then returning that information to the user through the view. 
 
-
-
-talk about how high-level components work 
-
-database/MVC
+Routes are also another important part of the application that help direct incoming http requests to the appropriate controllers and actions.
 
 ##### 2. List and describe any 3rd party services.
 * Includes a complete and detailed description of third party services used in the app
 
-
+#### Devise
 Use of Devise gem for user authentication and authorisation. The devise gem automatically generates a User model for us that we can use to assign unique accounts to. It allows us to generate a user and assign an email and password to. It can also generate the necessary views and routes for us to display login, sign up, edit password and forgot password pages.
 
+#### Stripe
 The Stripe gem was used to facilitate payments in GitGrub, it allows individuals and businesses to make payments online securely and quickly. 
+Stripe has streamlined the process to add payment options to an app and also have added security features such an enforced encryption, fraud detection and is Payment Card Industry Data Security Standards compliant (PCI DSS)- a security standard to reduce fraud and data breaches for customers.
 
-Amazon S3 for image uploading and cloud storage of images.
+#### Amazon S3
+Amazon Simple Storage Service or Amazon S3 provides storage for objects and is mainly used in my application for image uploading and cloud storage of images.
 
+
+#### Bulma
 Bulma was used as a css framework for quickly applying styling to various components. 
 
+
+#### Faker
 Faker gem was used to generate fake seed data. This was used to test functionality of the models and provide visual feedback of how views would render.
 
+#### Jquery-rails
 Jquery-rails was added so that I could have the favorites button work dynamically without re-rendering the whole webpage.
 
 ##### 3.1. Identify the problem you’re trying to solve by building this particular marketplace App?
