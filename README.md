@@ -124,10 +124,15 @@ NB leave the Titles as they are and answer the questions below.
 ##### 1. Explain the different high-level components (abstractions) in your App.
 * Precisely explains and shows understanding of the different high-level components of the app
 
-The model, view, controller and database are high-level components of the app.
+GitGrub was built using Ruby on Rails and utilises the Postgresql database. Ruby on Rails relies on the MVC- Model, View, Controller framework which divides the app into 3 distinct but connected parts. 
+The model, view, controller and database are high-level components of the app that interact to generate the various user interfaces for the client, handle and store data and deal with user requests.
 
 
+Model - abstracted ORM?
 
+View - 
+
+Controller - 
 
 
 
