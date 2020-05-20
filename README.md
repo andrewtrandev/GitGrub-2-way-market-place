@@ -19,16 +19,16 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [X] 8. I have explained why is it a problem that needs solving.
 - [X] 9. I have provided a link (URL) to my deployed app (i.e. website)
 - [ ] 10. I have provided a link to my GitHub repository (repo). I have ensured the repo is accessible by my Educators.
-- [ ] 11. I have a complete description of my marketplace app (website), including:  
+- [X] 11. I have a complete description of my marketplace app (website), including:  
 - [X] 11.1 Purpose  
 - [X] 11.2 Functionality / features  
 - [X] 11.3 Sitemap  
-- [ ] 11.4 Screenshots  
+- [X] 11.4 Screenshots  
 - [X] 11.5 Target audience  
 - [X] 11.6 Tech stack (e.g. html, css, deployment platform, etc)  
 
 - [X] 12. I have provided user stories for my app
-- [ ] 13. I have provided Wire-Frames for my app 
+- [X] 13. I have provided Wire-Frames for my app 
 - [ ] 14. I have provided an ERD for my app
 - [ ] 15. I have explained the different high-level components (abstractions) in my app
 - [ ] 16. I have listed and described any third party services that your app will use
@@ -74,12 +74,26 @@ Note the blue boxes/site pages can be accessed by anyone while yellow boxes can 
 
 #### Screenshots  
 
+Home screen
+![screenshot home](docs/screenshots/SChome.png)
 
+Login screen
+![screenshot login](docs/screenshots/SClogin.png)
 
+Create listing screen <br>
+![screenshot create listing](docs/screenshots/SCcreate.png)
 
+Change password screen
+![screenshot change password](docs/screenshots/SCchangepw.png)
 
+Home / Index of listings
+![screenshot index](docs/screenshots/SCindex.png)
 
+Show individual listing screen
+![screenshot show listing](docs/screenshots/SCshow.png)
 
+Favorites
+![screenshot favorites](docs/screenshots/SCfav.png)
 
 #### Target audience  
 The main audience are busy individuals and individuals seeking food that offers competitive pricing and healthier alternatives than traditional options.
@@ -256,11 +270,23 @@ A user can be either a buyer or seller.
 
 
 ##### 8. Provide Wireframes for your App.
-![home wireframe](docs/)  
-![show wireframe](docs/)  
-![edit wireframe](docs/)  
-![favorites wireframe](docs/)  
-![wireframe](docs/)  
+Wireframes for home page
+![home wireframe](docs/wireframes/home.png)  
+
+Show listing page
+![show wireframe](docs/wireframes/showlisting.png)  
+
+Edit listing page
+![edit listing wireframe](docs/wireframes/editlisting.png)  
+
+Edit profile page
+![edit profile wireframe](docs/wireframes/editprofile.png) 
+
+Advanced search page
+![search wireframe](docs/wireframes/search.png)
+
+Favorites page
+![favorites wireframe](docs/wireframes/favorites.png)    
 
 * More than five detailed and well designed wireframes provided, for several different screen sizes (as required for the app)
 
@@ -282,20 +308,20 @@ At the third stage I wanted to get most of the app done and start working on doc
 <br>
 
 11.5.20 / Day 4 - Below image is the state of my trello board
-![trello board 11th](docs/11th.PNG)
+![trello board 11th](docs/planning/11th.PNG)
 
 14.5.20 / Day 7
-![trello board 14th](docs/14th.PNG)
+![trello board 14th](docs/planning/14th.PNG)
 
 17.5.20 / Day 10
-![trello board 17th](docs/17th.PNG)
+![trello board 17th](docs/planning/17th.PNG)
 
 
 ![This is an image of your task planning](docs/)
 
 
 Below is an example of me using evernote to checkbox off tasks and quickly scaffold out drafts for them.
-![evernote](docs/evernote.PNG)
+![evernote](docs/planning/evernote.PNG)
 
 * Shows significant planning for how tasks are planned and tracked, including a full description of the process and of the tools used
 
