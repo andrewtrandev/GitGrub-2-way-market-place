@@ -62,3 +62,5 @@ gem "aws-sdk-s3", "~> 1.64"
 gem "stripe", "~> 5.21"
 
 gem "jquery-rails", "~> 4.4"
+
+gem "ransack", "~> 2.3"

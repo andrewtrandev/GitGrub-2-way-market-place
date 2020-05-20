@@ -6,7 +6,9 @@ class LunchesController < ApplicationController
 
 
     def index
-        @lunch=Lunch.all
+        # @lunch=Lunch.all
+        @q=Lunch.search(params[:q])
+        @lunch= @q.result
     end
 
     def show
