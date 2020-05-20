@@ -16,6 +16,10 @@ for i in 1..5
     )
 
     #we can then create lunches on those users
+
+end
+
+for i in 1..5
     user.lunches.create(
         name:Faker::Food.dish,
         description:Faker::Food.description,
@@ -26,6 +30,7 @@ for i in 1..5
         postcode:Faker::Number.between(from:1000, to:9999)
     )
     puts "created #{i} users"
+
 end
 
 
