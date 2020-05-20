@@ -7,20 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-for i in 1..5
+for i in 1..1
     #making a variable that we can assign the User creations to, 
     #on the first loop a user with email 1@test.com will be created and a random lunch will be created and associated to them.
-    user=User.create(
-        email: "#{i}@test.com",
+    user1=User.create(
+        email: "1@test.com",
         password: "123456"
     )
 
-    #we can then create lunches on those users
-
+    user2=User.create(
+        email: "2@test.com",
+        password: "123456"
+    )
 end
 
-for i in 1..5
-    user.lunches.create(
+for i in 1..3
+    user1.lunches.create(
         name:Faker::Food.dish,
         description:Faker::Food.description,
         price:Faker::Number.between(from: 1, to: 10),
@@ -29,17 +31,21 @@ for i in 1..5
         state:Faker::Address.state,
         postcode:Faker::Number.between(from:1000, to:9999)
     )
-    puts "created #{i} users"
+    puts "created #{i} foods for 1@test.com"
 
 end
 
 
-# for i in 1..5
-#     Lunch.create(
-#         name:Faker::Food.dish,
-#         description:Faker::Food.description,
-#         price:Faker::Number.between(from: 1, to: 10),
-#         user_id: 1
-#     )
-#     puts "created #{i} foods"
-# end
+for i in 1..3
+    user2.lunches.create(
+        name:Faker::Food.dish,
+        description:Faker::Food.description,
+        price:Faker::Number.between(from: 1, to: 10),
+        street:Faker::Address.street_name,
+        suburb:Faker::Address.city, 
+        state:Faker::Address.state,
+        postcode:Faker::Number.between(from:1000, to:9999)
+    )
+    puts "created #{i} foods for 2@test.com"
+
+end
