@@ -16,14 +16,28 @@
 <%= image_tag "hero.jpg", alt: "group toast"%>
 </div>
 
-<%# below 3 lines are to display the create button for new lunches %>
 
+
+<%= search_form_for @q do |f| %>
+    <div class="field">
+        <%= f.label :name_cont, "Search for meal"%>
+        <%= f.text_field :name_cont %>
+        </div>
+<div class="actions"><%= f.submit "Search"%></div>
+<% end %>
+
+
+
+<%# below 3 lines are to display the create button for new lunches %>
     <div class="box">
         <%= link_to "+ Add meal", lunch_new_path %>
     </div>
 
 
-<% for lunch in @lunch %>
+
+
+
+<% @lunch.each do |lunch| %>
     <%# note that @lunch is actually Lunch.all%>
     <%# so for each object of lunch, print picture, name,price,description%>
 <div class="box">
