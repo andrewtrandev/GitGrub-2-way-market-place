@@ -9,6 +9,7 @@ class LunchesController < ApplicationController
         # @lunch=Lunch.all
         @q=Lunch.search(params[:q])
         @lunch= @q.result
+        @q.build_condition
     end
 
     def show
