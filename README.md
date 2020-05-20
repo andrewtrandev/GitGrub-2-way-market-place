@@ -18,7 +18,7 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [X] 7. I have identified the problem I am trying to solve by building this particular marketplace app.
 - [X] 8. I have explained why is it a problem that needs solving.
 - [X] 9. I have provided a link (URL) to my deployed app (i.e. website)
-- [ ] 10. I have provided a link to my GitHub repository (repo). I have ensured the repo is accessible by my Educators.
+- [X] 10. I have provided a link to my GitHub repository (repo). I have ensured the repo is accessible by my Educators.
 - [X] 11. I have a complete description of my marketplace app (website), including:  
 - [X] 11.1 Purpose  
 - [X] 11.2 Functionality / features  
@@ -30,16 +30,16 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [X] 12. I have provided user stories for my app
 - [X] 13. I have provided Wire-Frames for my app 
 - [ ] 14. I have provided an ERD for my app
-- [ ] 15. I have explained the different high-level components (abstractions) in my app
-- [ ] 16. I have listed and described any third party services that your app will use
-- [ ] 17. I have described my projects models in terms of the relationships (active record associations) they have with each other.
+- [X] 15. I have explained the different high-level components (abstractions) in my app
+- [X] 16. I have listed and described any third party services that your app will use
+- [X] 17. I have described my projects models in terms of the relationships (active record associations) they have with each other.
 - [ ] 18. I have discussed the database relations to be implemented in my application
-- [ ] 19. I have provided my database schema design
+- [X] 19. I have provided my database schema design
 - [X] 20. I have described the way tasks are allocated and tracked in my project
 
 NB Slide/Presentation specific requirements
 
-- [ ] 21. An outline of the problem I solved by building this particular marketplace app, and why it’s a problem that needs solving.
+- [X] 21. An outline of the problem I solved by building this particular marketplace app, and why it’s a problem that needs solving.
 - [ ] 22. A well planned walkthrough of my app
 - [ ] 23. I have practiced my presentation at least once and it is 5-6 minutes long. 
 
@@ -167,7 +167,6 @@ Stripe has streamlined the process to add payment options to an app and also hav
 #### Amazon S3
 Amazon Simple Storage Service, or Amazon S3, provides storage for objects and is mainly used in my application for image uploading and cloud storage of images.
 
-
 #### Bulma
 Bulma is a css framework based on flexbox that I used for quickly applying styling to various components. 
 
@@ -176,6 +175,10 @@ Faker gem was used to generate fake seed data. This was used to test functionali
 
 #### Jquery-rails
 Jquery-rails was added so that I could have the favorites button work dynamically without re-rendering the whole webpage.
+
+#### Ransack
+Ransack gem was used to create a simple search form on my front page.
+Can be configured to search for various and multiple fields.
 
 ---
 ##### 3.1. Identify the problem you’re trying to solve by building this particular marketplace App?
@@ -203,10 +206,6 @@ The open market also allows for more competitive prices and higher-quality food 
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 * Complete discussion of the project’s models with an understanding of how its active record associations function
 ---
-<!-- Active record associations allow active record models to be associated with each other and interact with each other in an abstracted way.
-
-Dependent controls what happens to the object when the parent is destroyed. 
-Dependent Destroy causes the associated object to be destroyed.  -->
 
 ```ruby
 class User < ApplicationRecord
@@ -214,7 +213,7 @@ class User < ApplicationRecord
   has_many :lunches, dependent: :destroy
 end
 ```
-A User can have many lunches and many favorites. When a user is destroyed it will also consequently delete the favorites and lunches that reference the user as a foreign key.
+A User can have many lunches and many favorites. When a user deletes their account it will also consequently delete the favorites and lunches that reference the user as a foreign key.
 
 ```ruby
 class Lunch < ApplicationRecord
@@ -241,18 +240,88 @@ If a favorite only belonged to a user then there would be no reference to what l
 ![This is an image of your ERD](docs/)
 * Provides coherent discussion of the database relations, with reference to the ERD
 
-numbers and screenshots
 
+![erd mini sc](docs/)
+With reference to the ERD the user table uses ID as it's primary key and this is referenced in other tables as user_id.
+
+![erd mini sc](docs/)
+The lunches table uses user_id as a foreign key so that it can attach a lunch to a unique instance of a user.
+
+![erd mini sc](docs/)
+The favorites tables has two foreign keys in the case of user_id and lunch_id. It uses both of these values as a composite key to uniquely define a favorite.
+
+![erd mini sc](docs/)
+Active_storage_attachments references blob_id as a foreign key from active_storage_blobs.
+
+Active storage requires both the active_storage_blobs and active_storage_attachements. Active_storage_attachments is defined as a polymorphic join table according to https://edgeguides.rubyonrails.org/active_storage_overview.html
 
 ---
 ##### 6. Provide your database schema design.
 * Flawless, complex, complete, and well thought through ERDs provided
 ---
 
+Ruby on rails by default creates the following for "Users", "Lunches" and "Favorites" <br>
+I have omitted them from the schema.
+```ruby
+created_at: datetime
+updated_at: datetime
+```
+
+For the "Active Storage Attachments" and "Active Storage Blobs"
+Ruby on rails creates just:
+```ruby
+created_at: datetime
+```
+
+---
+
+Users:
+```ruby
+email: string
+encrypted_password: string
+reset_password_sent_at: datetime
+remember_created_at: datetime
+```
+
+Lunches:
+```ruby
+name: string
+text: description
+price: integer
+user_id: references
+street: string
+suburb: string
+state: string
+postcode: string
+```
+
+Favorites:
+```ruby
+user_id: references
+lunch_id: references
+```
+
+Active Storage Blobs:
+```ruby
+key: string
+filename: string
+content_type: string
+metadata: text
+byte_size: bigint
+checksum: string
+```
+
+Active Storage Attachments
+```ruby
+name: string
+record_tpe: string
+record_id: bigint
+blob_id: references
+```
+
 
 ---
 ##### 7. Provide User stories for your App.
-![This is an image of your user stories](docs/)
 * You also just use normal markdown to describe them
 * User stories are well thought out, relevant, and comprehensively cover the needs of the app
 ---
