@@ -224,7 +224,7 @@ If a favorite only belonged to a user then there would be no reference to what l
 ---
 ##### 5. Discuss the database relations to be implemented.
 ---
-![This is an image of your ERD](This is the relative path to it)
+![This is an image of your ERD](docs/)
 * Provides coherent discussion of the database relations, with reference to the ERD
 
 numbers and screenshots
@@ -238,7 +238,7 @@ numbers and screenshots
 
 ---
 ##### 7. Provide User stories for your App.
-![This is an image of your user stories](This is the relative path to it)
+![This is an image of your user stories](docs/)
 * You also just use normal markdown to describe them
 * User stories are well thought out, relevant, and comprehensively cover the needs of the app
 ---
@@ -255,13 +255,12 @@ A user can be either a buyer or seller.
 - As a user, I want to be able to navigate the various sections of the website quickly.
 
 
-
 ##### 8. Provide Wireframes for your App.
-![This is an image of your wire frames](This is the relative path to it)  
-![This is an image of your wire frames](This is the relative path to it)  
-![This is an image of your wire frames](This is the relative path to it)  
-![This is an image of your wire frames](This is the relative path to it)  
-![This is an image of your wire frames](This is the relative path to it)  
+![home wireframe](docs/)  
+![show wireframe](docs/)  
+![edit wireframe](docs/)  
+![favorites wireframe](docs/)  
+![wireframe](docs/)  
 
 * More than five detailed and well designed wireframes provided, for several different screen sizes (as required for the app)
 
@@ -286,19 +285,23 @@ At the third stage I wanted to get most of the app done and start working on doc
 ![trello board 11th](docs/11th.PNG)
 
 14.5.20 / Day 7
-![trello board 14th](docs/14th.PNG)\
+![trello board 14th](docs/14th.PNG)
 
 17.5.20 / Day 10
 ![trello board 17th](docs/17th.PNG)
 
 
-![This is an image of your task planning](This is the relative path to it)
+![This is an image of your task planning](docs/)
+
+
+Below is an example of me using evernote to checkbox off tasks and quickly scaffold out drafts for them.
+![evernote](docs/evernote.PNG)
 
 * Shows significant planning for how tasks are planned and tracked, including a full description of the process and of the tools used
 
 
 ##### 10. ERD provided represents a normalised database model.
-![This is an image of your ERD](This is the relative path to it)
+![This is an image of your ERD](docs/)
 * Meets D with no duplication and ideal definition of entities.
 
 
