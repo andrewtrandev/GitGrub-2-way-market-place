@@ -28,6 +28,34 @@
 
 body{
     background-color:#F3F0E1;
+    // background-color:#F8E473;
+    // background-color: #DCDCDC;
     // font-family: 'Roboto Condensed', sans-serif;
 }
 
+a{
+    // color:orange !important;
+}
+
+ a:hover{
+    color:orange !important;
+}
+
+.edit_delete{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.edit_delete a{
+    margin-right:5px;
+}
+
+.price{
+    display:flex;
+    justify-content: center;
+}
+
+.showlink{
+    display:flex;
+    justify-content: center;
+}
