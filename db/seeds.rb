@@ -33,10 +33,6 @@ for i in 1..3
     )
     puts "created #{i} foods for 1@test.com"
 
-end
-
-
-for i in 1..3
     user2.lunches.create(
         name:Faker::Food.dish,
         description:Faker::Food.description,
@@ -49,3 +45,4 @@ for i in 1..3
     puts "created #{i} foods for 2@test.com"
 
 end
+
