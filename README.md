@@ -65,6 +65,9 @@ Logged in users can favorite meals by clicking the favorite link displayed when 
 - **Secure Payment** -
 Payments are handled by stripe, a well-known payment platform that accepts credit cards and google pay. 
 
+- **Search** - 
+Can search for foods by name
+
 <br>
 
 #### Sitemap  
@@ -97,7 +100,7 @@ Favorites<br>
 ![screenshot favorites](docs/screenshots/SCfav.png)
 
 #### Target audience  
-The main audience are busy individuals and individuals seeking food that offers competitive pricing and healthier alternatives than traditional options.
+The main audience are busy individuals and individuals seeking food that offers competitive pricing and healthier alternatives compared to traditional options.
 
 #### Tech stack (e.g. html, css, deployment platform, etc)  
 Application and Data
@@ -141,12 +144,12 @@ NB leave the Titles as they are and answer the questions below.
 
 GitGrub was built using Ruby on Rails and utilises the Postgresql database. Ruby on Rails relies on the MVC (Model, View, Controller) framework which divides the app into 3 distinct but connected parts. Rails has very specific naming conventions that it requires so that it can recognise and create links between the MVC framework.
 
-The model, view, controller and database are high-level components of the app that interact to generate the various user interfaces for the client, handle and store data and deal with user requests. Explained below are the different high-level components:
+The model, view, controlle and routes are high-level components of the app that interact to generate the various user interfaces for the client, handle and store data and deal with user requests. Explained below are the different high-level components:
 
 The model, also known as ActiveRecord, primarily deals with persistent data and the manipulation of the database. The model makes use of associations and Object Relational Mapping to manipulate data as objects which allows us to interact with the database without having to write SQL. 
 ActiveRecord also automatically generates Create, Read, Update, Delete (CRUD) methods for us to use on our models.
 
-The view, also known as ActionView, is concerned with presentation of data to the user. It mainly uses Embedded Ruby (erb) files to display data. Views can access the instance variables of methods that are appropriately named, this allows Controllers to pass information to views so that they can displayed to end users. Views should have very little logic and mainly have logic to render displays.
+The view, also known as ActionView, is concerned with presentation of data to the user. It mainly uses Embedded Ruby (erb) files to display data. Views can access the instance variables of methods that are appropriately named, this allows Controllers to pass information to views so that they can be displayed to end users. Views should have very little logic and mainly have logic to render displays.
 
 The Controller, also known as ActionController, handles requests from users and acts as a middle-man between the view and model by analysing requests and forwarding them to the model to fetch, update or save data and then returning that information to the user through the view. 
 
@@ -286,7 +289,8 @@ The lunch model also has the
 ```
 ![db relations for active storage](docs/dbrelations/activeERD.PNG)
 
-The relation for this pertains to active_storage_attachments and active_storage_blobs which are used for active storage.
+
+The relation for this pertains to active_storage_attachments and active_storage_blobs which are used for active storage. 
 "Active_storage_attachments" references "blob_id" as a foreign key from "active_storage_blobs."
 
 
