@@ -12,6 +12,7 @@
 
     <%# below code to import bulma %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <%= favicon_link_tag asset_path('favicon.ico') %>
     <%# <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> %>
   </head>
@@ -24,15 +25,45 @@
     <%# bulma assumes everything is going to be wrapped in a section and container %>
     <%# this adjusts margin and padding and makes it responsive by adding breakpoints %>
       <div class="container">
-           <nav class="breadcrumb" aria-label="breadcrumbs">
+           <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
         
         <% if user_signed_in? %>
           <%# if user is signed in, display a logout button %>
           <ul>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-              <li><%= link_to "Change password", edit_user_registration_path %></li>
-              <li><%= link_to "Favorites", favorites_path%>
-              <li><%= link_to "Home", lunches_path%>
+          <li>
+              <span class="icon is-small">
+              <i class="fas fa-home" aria-hidden="true"></i>
+              </span>
+              <span>
+              <%= link_to "Home", lunches_path%>
+              </span> 
+          </li>
+              
+              <li>
+                <span class="icon is-small">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+                </span>
+                <span class="navtitles">
+              <%= link_to "Favorites", favorites_path%>
+              </span> </li>
+
+
+              <li>
+                <span class="icon is-small">
+                <i class="fas fa-lock"></i>
+                </span>
+                <span class="navtitles">
+              <%= link_to "Change password", edit_user_registration_path %>
+              </span>
+              </li>
+
+              <li>
+              <span class="icon is-small">
+              <i class="fas fa-sign-out-alt"></i>
+              </span>
+              <span class="navtitles">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %></li>   
+              </span>
           </ul>
           
         <% end %>
