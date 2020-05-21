@@ -1,6 +1,6 @@
 # GitGrub - 2-way marketplace
 
-Link to the deployed app: https://git.heroku.com/gitgrubb.git  <br>
+Link to the deployed app: https://gitgrubb.herokuapp.com/  <br>
 Link to github repo: https://github.com/andrewtrandev/GitGrub
 
 ---
@@ -29,7 +29,7 @@ Each time you have completed a requirement check it off the list. This way it wi
 
 - [X] 12. I have provided user stories for my app
 - [X] 13. I have provided Wire-Frames for my app 
-- [ ] 14. I have provided an ERD for my app
+- [X] 14. I have provided an ERD for my app
 - [X] 15. I have explained the different high-level components (abstractions) in my app
 - [X] 16. I have listed and described any third party services that your app will use
 - [X] 17. I have described my projects models in terms of the relationships (active record associations) they have with each other.
@@ -74,25 +74,26 @@ Note the blue boxes/site pages can be accessed by anyone while yellow boxes can 
 
 #### Screenshots  
 
-Home screen
+Home screen<br>
+
 ![screenshot home](docs/screenshots/SChome.png)
 
-Login screen
+Login screen<br>
 ![screenshot login](docs/screenshots/SClogin.png)
 
-Create listing screen <br>
+Create listing screen<br>
 ![screenshot create listing](docs/screenshots/SCcreate.png)
 
-Change password screen
+Change password screen<br>
 ![screenshot change password](docs/screenshots/SCchangepw.png)
 
-Home / Index of listings
+Home / Index of listings<br>
 ![screenshot index](docs/screenshots/SCindex.png)
 
-Show individual listing screen
+Show individual listing screen<br>
 ![screenshot show listing](docs/screenshots/SCshow.png)
 
-Favorites
+Favorites<br>
 ![screenshot favorites](docs/screenshots/SCfav.png)
 
 #### Target audience  
@@ -149,7 +150,7 @@ The view, also known as ActionView, is concerned with presentation of data to th
 
 The Controller, also known as ActionController, handles requests from users and acts as a middle-man between the view and model by analysing requests and forwarding them to the model to fetch, update or save data and then returning that information to the user through the view. 
 
-Routes are also another important part of the application that help direct incoming http requests to the appropriate controllers and actions.
+Routes are also another important part of the application that help direct incoming http requests to the appropriate controllers and actions. Rails has a router that processes the incoming HTTP methods and URL's, and then sends them to the appropriate controller and action.
 
 
 ---
@@ -283,9 +284,11 @@ The lunch model also has the
 ```
 -has one picture attached
 ```
-Active_storage_attachments references blob_id as a foreign key from active_storage_blobs.
+![db relations for active storage](docs/dbrelations/activeERD.PNG)
 
-Active storage requires both the active_storage_blobs and active_storage_attachements. Active_storage_attachments is defined as a polymorphic join table according to https://edgeguides.rubyonrails.org/active_storage_overview.html
+The relation for this pertains to active_storage_attachments and active_storage_blobs which are used for active storage.
+"Active_storage_attachments" references "blob_id" as a foreign key from "active_storage_blobs."
+
 
 ---
 ##### 6. Provide your database schema design.
@@ -384,7 +387,9 @@ Authorisation
 - As a seller, only I should be able to edit and delete my own listings.
 - As a user, only I can view and edit my favorites
 - As a user, no one should be able to access my account without the correct details
-- 
+
+
+---
 
 ##### 8. Provide Wireframes for your App.
 Wireframes for home page
@@ -407,6 +412,8 @@ Favorites page
 
 * More than five detailed and well designed wireframes provided, for several different screen sizes (as required for the app)
 
+
+---
 ##### 9. Describe the way tasks are planned and tracked in your project.
 
 
@@ -421,6 +428,8 @@ Optional features such as stripe and styling were added in after deployment was 
 
 At the third stage I wanted to get most of the app done and start working on documentation. This stage included more styling and modifying of one of the models.   
 
+The fourth stage was basically all docs, with little adjustments and modifications added to code.
+
 
 <br>
 
@@ -433,8 +442,8 @@ At the third stage I wanted to get most of the app done and start working on doc
 17.5.20 / Day 10
 ![trello board 17th](docs/planning/17th.PNG)
 
-
-![This is an image of your task planning](docs/)
+21.5.20/ Day 14 - Last day
+![trello board 21st](docs/planning/21st.PNG)
 
 
 Below is an example of me using evernote to checkbox off tasks and quickly scaffold out drafts for them.
@@ -443,10 +452,11 @@ Below is an example of me using evernote to checkbox off tasks and quickly scaff
 * Shows significant planning for how tasks are planned and tracked, including a full description of the process and of the tools used
 
 
-##### 10. ERD provided represents a normalised database model.
-![This is an image of your ERD](docs/ERD.png)
-* Meets D with no duplication and ideal definition of entities.
+---
 
+##### 10. ERD provided represents a normalised database model.
+* Meets D with no duplication and ideal definition of entities.
+![This is an image of your ERD](docs/ERD.png)
 
 
 ---

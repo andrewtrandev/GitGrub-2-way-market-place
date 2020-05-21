@@ -1,12 +1,13 @@
 class LunchesController < ApplicationController
     before_action :authenticate_user!, only:[:new, :create, :edit, :destroy, :update]
-    # skip_before_action :verify_authenticity_token
     before_action :set_lunch, only: [:show] 
     before_action :set_user_listing, only: [:edit, :update, :destroy] #users can only edit,update,destroy their own creations
 
 
     def index
         # @lunch=Lunch.all
+
+        #below two lines are used for the search form/ransack gem
         @q=Lunch.search(params[:q])
         @lunch= @q.result
     end
@@ -36,10 +37,10 @@ class LunchesController < ApplicationController
     end
 
     def destroy
-    # Lunch.find(params[:id]).destroy
+        #@lunch=current_user.lunches.find_by_id(params[:id])  - set in private method
         @lunch.destroy
         redirect_to lunches_path
-        #only need instance variables if we're going to pass them to the view???
+      
     end
 
     def update
@@ -65,15 +66,15 @@ class LunchesController < ApplicationController
 
 
     def set_lunch
-        #check if this lunch exists, if it does set @lunch to the lunch found
+        #this one has no user authorisation so we can show individual listings to anyone
+        #check if this lunch exists, if it does, set @lunch to the lunch found
         if Lunch.exists?(params[:id])
             @lunch=Lunch.find(params[:id])
         else 
             #if it does not exist then redirect to index
             redirect_to lunches_path
         end
-        #using this method to dry up code as we use Lunch.find alot
-        #called at the top
+       
     end
 
     def set_user_listing
