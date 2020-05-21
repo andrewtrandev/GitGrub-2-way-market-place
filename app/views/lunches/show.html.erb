@@ -13,7 +13,9 @@
         
             <% if current_user.id != @lunch.user_id%> <%# if signed in check that current user is not equal to user who made lunch %>
                 <%# if true render the purchase button %>
-                <%= link_to favorite_text, favorites_update_path(lunch: @lunch), id:'favorite_link', remote: true %>
+                <div class="favorite">
+                <%= link_to favorite_text, favorites_update_path(lunch: @lunch), id:'favorite_link', remote: true, class:"button is-success is-rounded" %>
+                </div>
                     <button data-stripe="payment">
                     Purchase Food <%= number_to_currency(@lunch.price)%>
                     </button>
@@ -45,6 +47,7 @@
             });
         </script>
 
-        <p><%= link_to "Back", lunches_path %>
-        
+        <div class="backbutton">
+        <p><%= link_to "Back", lunches_path , class:"button is-link"%>
+        </div>
     </div>

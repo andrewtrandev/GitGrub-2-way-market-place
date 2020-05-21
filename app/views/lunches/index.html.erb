@@ -1,5 +1,12 @@
 <% if !user_signed_in?%>
-<%= link_to "Login", new_user_session_path%>
+<div class="mainlogin">
+<button class="button is-medium is-success">
+<span class="icon is-small">
+    <i class="fas fa-sign-in-alt"></i>
+ </span>
+<span><%= link_to "Login", new_user_session_path%></span>
+</button>
+</div>
 <%end%>
 <%# if user is not signed in render Login link %>
 

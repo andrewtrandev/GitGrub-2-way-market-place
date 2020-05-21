@@ -92,3 +92,18 @@ a{
 .login a{
     padding-left:0px !important;
 }
+
+.favorite, .backbutton{
+    display:flex;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.actions{
+    margin-bottom: 15px;
+}
+
+.mainlogin{
+    display:flex;
+    justify-content: center;
+}
