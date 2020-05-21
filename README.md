@@ -33,7 +33,7 @@ Each time you have completed a requirement check it off the list. This way it wi
 - [X] 15. I have explained the different high-level components (abstractions) in my app
 - [X] 16. I have listed and described any third party services that your app will use
 - [X] 17. I have described my projects models in terms of the relationships (active record associations) they have with each other.
-- [ ] 18. I have discussed the database relations to be implemented in my application
+- [X] 18. I have discussed the database relations to be implemented in my application
 - [X] 19. I have provided my database schema design
 - [X] 20. I have described the way tasks are allocated and tracked in my project
 
@@ -190,10 +190,9 @@ Can be configured to search for various and multiple fields.
 ---
 The problem I'm trying to solve is the lack of options when it comes to meals. Options such as going out to eat at a restaurant during the coronavirus pandemic are not possible, considering most restaurants have shut or drastically reduced their open times and/or seating capacity. 
 This leaves the options of cooking your own food or getting food delivered. Delivery options are expensive-for what you get and if it's not expensive than it's usually fast food which isn't particularly healthy.
-For the person who can't cook or doesn't have the time to make meals. GitGrub offers an alternative to fast food and the exorbitant pricing for a good meal.
+GitGrub offers an alternative to fast food and the exorbitant pricing for a good meal.
 GitGrub gives you access to the home cooking of anyone willing to place their food up for sale. 
 
-These meals could be anything from breakfasts, to lunches and dinners. By opening the market up to anyone who can cook we can allow for a more dynamic food market where naturally food options are diversified, prices are competitive and food of high-quality is popular.
 
 ---
 ##### 3.2 Why is the problem identified a problem that needs solving?
@@ -201,10 +200,8 @@ These meals could be anything from breakfasts, to lunches and dinners. By openin
 ---
 
 This problem needs solving as busy individuals and individuals looking for affordable and healthy meals are starved for options. 
-Especially during the coronavirus pandemic, options are limited and now that more people are forced to stay at home, it may be comforting to have alternatives.
-By making an app to connect cooks and users we can open the market up to cooks,families and meal preppers that can take advantage of a unique time where most people are eating at home.
+By making an app to connect cooks and users we can open the market up to cooks,families and meal preppers that can take advantage of a unique time where most people are eating at home. The open market also allows for a more dynamic food environment where, naturally, food options are diversified, prices are competitive and higher-quality food is supported.
 
-The open market also allows for more competitive prices and higher-quality food which will naturally sell more than lesser-quality food, this creates an incentive to maintain quality and innovate on better dishes.
 
 ---
 ##### 4. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
@@ -259,7 +256,7 @@ The relations to be implemented for the user table:
 ```
 
 A user can create lunches and also favorite lunches to view later.
-These relations have been assigned for user, as a user should be free to have no favorites/lunchs or many favorites/lunches.
+These relations have been assigned for the user model, as a user should be free to have no favorites/lunchs or many favorites/lunches.
 
 <br>
 
@@ -269,7 +266,7 @@ The relations to be implemented for the lunch table:
 - lunches can only belong to one user
 ```
 
-Lunches are the listings that a user can create that detail the meal that they are selling. The relations for lunches are needed so that we can define a lunch as having only been created and belonging to one user. Lunches also can have favorites associated with them, so no users could favorite a lunch or many could.
+Lunches are the listings that a user can create that detail the meal that they are selling. The relations for lunches are needed so that we can define a lunch as having only been created and belonging to one user. Lunches also can have favorites associated with them, so a particular lunch could have no users having favorited it or many.
 
 <br>
 
@@ -279,7 +276,7 @@ The relations to be implemented for the favorites table:
 - a favorite belongs to one lunch
 ```
 
-The favorites tables has two foreign keys in the case of user_id and lunch_id. It uses both of these values as a composite key to uniquely define a favorite.
+The favorites tables has two foreign keys in the case of user_id and lunch_id. It uses both of these values as a composite key to uniquely define a favorite. 
 
 
 
@@ -396,6 +393,8 @@ Authorisation
 ---
 
 ##### 8. Provide Wireframes for your App.
+* More than five detailed and well designed wireframes provided, for several different screen sizes (as required for the app)
+
 Wireframes for home page
 ![home wireframe](docs/wireframes/home.png)  
 
@@ -414,7 +413,6 @@ Advanced search page
 Favorites page
 ![favorites wireframe](docs/wireframes/favorites.png)    
 
-* More than five detailed and well designed wireframes provided, for several different screen sizes (as required for the app)
 
 
 ---
@@ -430,7 +428,7 @@ The aim of the first stage was to get a minimum viable product(mvp) up and runni
 The aim of the second stage was get the app deploy ready. This involved having completely finished the code requirements and testing if the app would deploy. 
 Optional features such as stripe and styling were added in after deployment was successful.
 
-At the third stage I wanted to get most of the app done and start working on documentation. This stage included more styling and modifying of one of the models.   
+At the third stage I wanted to only be putting finishing touches on the  app and start working on documentation. This stage included more styling and modifying of one of the models.
 
 The fourth stage was basically all docs, with little adjustments and modifications added to code.
 
