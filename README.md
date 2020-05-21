@@ -1,4 +1,4 @@
-# My 2 way market place template
+# GitGrub - 2-way marketplace
 
 Link to the deployed app: https://git.heroku.com/gitgrubb.git  <br>
 Link to github repo: https://github.com/andrewtrandev/GitGrub
@@ -231,32 +231,65 @@ class Favorite < ApplicationRecord
 end
 ```
 
-The Favorites model is used to attach a favorite to a specific lunch and  user. A Favorite belongs to a User and Lunch. The combination of both of these act as a join table to define Favorites.
+The Favorites model is used to attach a favorite to a specific lunch and  user. A Favorite belongs to a User and Lunch, the combination of both of these foreign keys act as a composite key to uniquely define a Favorite.
 If a favorite only belonged to a user then there would be no reference to what lunch it would refer to and if a favorite only belonged to a lunch then it wouldn't be belong to any user. Hence why we need both values.
+
 
 ---
 ##### 5. Discuss the database relations to be implemented.
 ---
-![This is an image of your ERD](docs/)
+![erd mini sc](docs/dbrelations/erdrelations.PNG)
 * Provides coherent discussion of the database relations, with reference to the ERD
 
+---
 
-![erd mini sc](docs/)
-With reference to the ERD the user table uses ID as it's primary key and this is referenced in other tables as user_id.
 
-![erd mini sc](docs/)
-The lunches table uses user_id as a foreign key so that it can attach a lunch to a unique instance of a user.
+With reference to the above ERD and specifically crow's feet, the following database relations will be implemented along with relevant discussion.
 
-![erd mini sc](docs/)
+<br>
+
+```
+The relations to be implemented for the user table:
+- users can have zero or many favorites
+- users can have zero or many lunches
+```
+
+A user can create lunches and also favorite lunches to view later.
+These relations have been assigned for user, as a user should be free to have no favorites/lunchs or many favorites/lunches.
+
+<br>
+
+```
+The relations to be implemented for the lunch table:
+- lunches can have zero or many favorites
+- lunches can only belong to one user
+```
+
+Lunches are the listings that a user can create that detail the meal that they are selling. The relations for lunches are needed so that we can define a lunch as having only been created and belonging to one user. Lunches also can have favorites associated with them, so no users could favorite a lunch or many could.
+
+<br>
+
+```
+The relations to be implemented for the favorites table:
+- a favorite belongs to one user
+- a favorite belongs to one lunch
+```
+
 The favorites tables has two foreign keys in the case of user_id and lunch_id. It uses both of these values as a composite key to uniquely define a favorite.
 
-![erd mini sc](docs/)
+
+
+The lunch model also has the 
+```
+-has one picture attached
+```
 Active_storage_attachments references blob_id as a foreign key from active_storage_blobs.
 
 Active storage requires both the active_storage_blobs and active_storage_attachements. Active_storage_attachments is defined as a polymorphic join table according to https://edgeguides.rubyonrails.org/active_storage_overview.html
 
 ---
 ##### 6. Provide your database schema design.
+![image of ERD for reference](docs/ERD.png)
 * Flawless, complex, complete, and well thought through ERDs provided
 ---
 
@@ -275,6 +308,8 @@ created_at: datetime
 
 ---
 
+<br>
+
 Users:
 ```ruby
 email: string
@@ -282,6 +317,7 @@ encrypted_password: string
 reset_password_sent_at: datetime
 remember_created_at: datetime
 ```
+<br>
 
 Lunches:
 ```ruby
@@ -294,12 +330,14 @@ suburb: string
 state: string
 postcode: string
 ```
+<br>
 
 Favorites:
 ```ruby
 user_id: references
 lunch_id: references
 ```
+<br>
 
 Active Storage Blobs:
 ```ruby
@@ -310,6 +348,7 @@ metadata: text
 byte_size: bigint
 checksum: string
 ```
+<br>
 
 Active Storage Attachments
 ```ruby
@@ -328,15 +367,24 @@ blob_id: references
 
 A user can be either a buyer or seller.
 
+User Experience
 - As a user, I want to view meals without logging in.
 - As a user, I want to be able to logout at any screen.
-- As a user, I want to be able to buy meals.
+-  As a seller, I can create listings and attach details to my listings including images.
+- As a user, I want to search for meals
 - As a user, I want to be able to favorite meals that I like and view them later.
-- As a seller, I can create listings and attach details to my listings including images.
+- As a user, I want to be able to buy meals.
 - As a user, I want payment to be handled quickly and securely.
-- As a seller, only I should be able to edit and delete my own listings.
 - As a user, I want to be able to navigate the various sections of the website quickly.
+- As a user, I can delete my account
+- As a user, I can change my password
 
+Authorisation
+- As a seller, I shouldn't be able to purchase my own listings
+- As a seller, only I should be able to edit and delete my own listings.
+- As a user, only I can view and edit my favorites
+- As a user, no one should be able to access my account without the correct details
+- 
 
 ##### 8. Provide Wireframes for your App.
 Wireframes for home page
@@ -396,7 +444,7 @@ Below is an example of me using evernote to checkbox off tasks and quickly scaff
 
 
 ##### 10. ERD provided represents a normalised database model.
-![This is an image of your ERD](docs/)
+![This is an image of your ERD](docs/ERD.png)
 * Meets D with no duplication and ideal definition of entities.
 
 
