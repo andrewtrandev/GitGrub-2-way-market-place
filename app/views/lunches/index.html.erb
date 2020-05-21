@@ -17,15 +17,15 @@
 </div>
 
 
-
+<div class="search">
 <%= search_form_for @q do |f| %>
     <div class="field">
-        <%= f.label :name_cont, "Search for meal"%>
+        <%= f.label :name_cont, "Search for a meal"%>
         <%= f.text_field :name_cont %>
+        <%= f.submit "Search", class:"button is-success is-small"%>
         </div>
-<div class="actions"><%= f.submit "Search"%></div>
 <% end %>
-
+</div>
 
 
 <%# below 3 lines are to display the create button for new lunches %>

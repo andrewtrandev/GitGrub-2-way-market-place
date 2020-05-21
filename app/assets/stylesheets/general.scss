@@ -63,3 +63,32 @@ a{
 .navtitles a{
     padding-left:0px !important;
 }
+
+.search{
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.formbox{
+    margin-top:30px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+    width:60%;
+}
+
+.login{
+    display:flex;
+    margin-top: 30px;
+    
+    // justify-content: flex-start;
+}
+
+.login a{
+    padding-left:0px !important;
+}

@@ -1,3 +1,4 @@
+<div class="formbox">
 <% if @lunch.errors.any? %>
 <%# @lunch.errors.any? is an array%>
     <% @lunch.errors.full_messages.each do |error|%>
@@ -60,3 +61,5 @@
     <p><%= link_to "Back", lunches_path %>
 
 <% end %>
+
+</div>
