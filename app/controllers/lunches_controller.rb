@@ -5,14 +5,13 @@ class LunchesController < ApplicationController
 
 
     def index
-        # @lunch=Lunch.all
-
         #below two lines are used for the search form/ransack gem
         @q=Lunch.search(params[:q])
         @lunch= @q.result
     end
 
     def show
+        #this instance variable is used to check if our favorite exists
         @favorite_exists = Favorite.where(lunch: @lunch, user: current_user) == [] ? false :  true
         #app would error because unlogged users had no current email
         if user_signed_in?
@@ -26,9 +25,7 @@ class LunchesController < ApplicationController
     end
 
     def create
-        # @lunch=Lunch.create(name: params[:name], description: params[:description], price: params[:price])
-        #above line of code doesn't work with new form - kept creating null records, but after setting listing_params and using below code it works.
-            @lunch=current_user.lunches.create(lunch_params)
+            @lunch=current_user.lunches.create(lunch_params) #create a lunch using the current user
             if @lunch.errors.any? #is there any errors with creating lunch?
                 render "new" #render new view
             else 
